@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privatkunden – Costa & McLaren Versicherungsmakler GmbH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --anthrazit: #2d3035;
+      --bg: #f2f1ef;
+      --white: #ffffff;
+      --text: #1a1c1e;
+      --muted: #6b6f74;
+      --gold: #b89a6a;
+      --border: rgba(45,48,53,0.12);
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Lato', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 90px; background: rgba(242,241,239,0.96);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; padding: 0 56px;
+      transition: background 0.3s;
+    }
+    .nav-logo { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); letter-spacing: 0.01em; white-space: nowrap; margin-right: auto; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-family: var(--sans); font-size: 15px; font-weight: 400; color: var(--text); letter-spacing: 0.04em; white-space: nowrap; position: relative; padding-bottom: 2px; }
+    .nav-links a.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 1px; background: var(--text); }
+    .nav-login { margin-left: 32px; font-family: var(--sans); font-size: 13px; font-weight: 400; letter-spacing: 0.06em; padding: 8px 22px; border: 1px solid var(--text); color: var(--text); background: transparent; cursor: pointer; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+    .nav-login:hover { background: var(--text); color: var(--white); }
+
+    /* HERO */
+    .hero { position: relative; height: 65vh; min-height: 460px; display: flex; align-items: flex-end; padding-bottom: 88px; overflow: hidden; background: var(--anthrazit); }
+    .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80'); background-size: cover; background-position: center; opacity: 0.45; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(45,48,53,0.1) 0%, rgba(45,48,53,0.45) 50%, rgba(45,48,53,0.88) 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 1280px; width: 100%; margin: 0 auto; padding: 0 56px; }
+    .hero-label { font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; opacity: 0; animation: fadeUp 1s 0.2s forwards; }
+    .hero-title { font-family: var(--serif); font-size: clamp(32px, 4.5vw, 62px); font-weight: 400; color: #fff; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 18px; opacity: 0; transform: translateY(30px); animation: fadeUp 1s 0.35s forwards; }
+    .hero-sub { font-family: var(--serif); font-size: clamp(16px, 2vw, 24px); font-style: italic; color: rgba(255,255,255,0.75); line-height: 1.5; margin-bottom: 36px; opacity: 0; transform: translateY(30px); animation: fadeUp 1s 0.5s forwards; }
+    .hero-btns { opacity: 0; transform: translateY(30px); animation: fadeUp 1s 0.65s forwards; }
+    .btn-white { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; background: #fff; color: var(--anthrazit); display: inline-block; transition: background 0.2s; }
+    .btn-white:hover { background: #e8e6e3; }
+
+    /* SECTIONS */
+    .inner { max-width: 1280px; margin: 0 auto; }
+    .section-label { font-family: var(--sans); font-size: 18px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .section-title { font-family: var(--serif); font-size: clamp(26px, 2.8vw, 42px); font-weight: 400; color: var(--text); line-height: 1.2; margin-bottom: 28px; }
+    .section-text { font-family: var(--sans); font-size: 17px; line-height: 1.9; color: var(--muted); font-weight: 300; max-width: 760px; }
+
+    /* EINLEITUNG */
+    .section-intro { background: var(--bg); padding: 112px 56px; }
+    .section-intro .section-title { max-width: 640px; }
+    .section-intro .section-text { margin-bottom: 20px; }
+
+    /* LEISTUNGEN */
+    .section-leistungen { background: var(--white); padding: 112px 56px; }
+    .section-leistungen .section-title { margin-bottom: 56px; }
+    .leistungen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .leistung-card { background: var(--bg); padding: 40px 32px; border: 1px solid rgba(45,48,53,0.07); transition: background 0.35s, border-color 0.35s; cursor: default; }
+    .leistung-card:hover { background: var(--anthrazit); border-color: var(--anthrazit); }
+    .leistung-card:hover .l-num, .leistung-card:hover .l-name, .leistung-card:hover .l-desc { color: rgba(255,255,255,0.85); }
+    .leistung-card:hover .l-line { background: rgba(255,255,255,0.15); }
+    .l-num { font-family: var(--serif); font-size: 12px; color: var(--muted); margin-bottom: 22px; transition: color 0.35s; }
+    .l-name { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); line-height: 1.3; margin-bottom: 14px; transition: color 0.35s; }
+    .l-line { width: 28px; height: 1px; background: var(--border); margin-bottom: 14px; transition: background 0.35s; }
+    .l-desc { font-family: var(--sans); font-size: 16px; line-height: 1.75; color: var(--muted); font-weight: 300; transition: color 0.35s; }
+
+    /* VORGEHENSWEISE */
+    .section-prozess { background: var(--anthrazit); padding: 112px 56px; }
+    .section-prozess .section-label { color: var(--gold); }
+    .section-prozess .section-title { color: #fff; margin-bottom: 72px; }
+    .prozess-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+    .prozess-step { padding: 40px 28px; border: 1px solid rgba(255,255,255,0.1); transition: background 0.3s, border-color 0.3s; }
+    .prozess-step:hover { background: rgba(255,255,255,0.06); border-color: var(--gold); }
+    .prozess-step:hover .p-num { color: #fff; }
+    .prozess-step:hover .p-name { color: #fff; }
+    .prozess-step:hover .p-desc { color: rgba(255,255,255,0.8); }
+    .p-num { font-family: var(--serif); font-size: 36px; font-weight: 400; color: var(--gold); margin-bottom: 24px; line-height: 1; transition: color 0.3s; }
+    .p-name { font-family: var(--serif); font-size: 18px; font-weight: 400; color: #fff; margin-bottom: 14px; line-height: 1.3; transition: color 0.3s; }
+    .p-line { width: 28px; height: 1px; background: rgba(255,255,255,0.2); margin-bottom: 14px; }
+    .p-desc { font-family: var(--sans); font-size: 13px; line-height: 1.75; color: rgba(255,255,255,0.55); font-weight: 300; transition: color 0.3s; }
+
+    /* CTA */
+    .section-cta { background: var(--bg); padding: 112px 56px; }
+    .cta-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+    .cta-title { font-family: var(--serif); font-size: clamp(28px, 3vw, 44px); font-weight: 400; color: var(--text); line-height: 1.2; margin-bottom: 24px; }
+    .cta-text { font-family: var(--sans); font-size: 17px; line-height: 1.85; color: var(--muted); font-weight: 300; margin-bottom: 40px; }
+    .btn-dark { display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; background: var(--anthrazit); color: #fff; border: none; cursor: pointer; transition: background 0.2s; }
+    .btn-dark:hover { background: #3a3f45; }
+
+    /* FOOTER */
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 80px 56px 48px; }
+    .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; margin-bottom: 64px; }
+    .footer-brand { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); line-height: 1.25; margin-bottom: 14px; }
+    .footer-sub { font-family: var(--sans); font-size: 15px; color: var(--muted); font-weight: 300; line-height: 1.6; }
+    .footer-col-title { font-family: var(--serif); font-size: 21px; font-weight: 400; color: var(--text); margin-bottom: 20px; }
+    .footer-col-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col-list li, .footer-col-list a { font-family: var(--sans); font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.6; }
+    .footer-col-list a:hover { color: var(--text); text-decoration: underline; }
+    .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(45,48,53,0.07); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: var(--sans); font-size: 12px; color: var(--muted); font-weight: 300; }
+
+    /* ANIMATIONEN */
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .leistungen-grid { grid-template-columns: 1fr 1fr; }
+      .prozess-grid { grid-template-columns: 1fr 1fr; }
+      .cta-inner { grid-template-columns: 1fr; gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero-content, .section-intro, .section-leistungen, .section-prozess, .section-cta, footer { padding-left: 24px; padding-right: 24px; }
+      .leistungen-grid, .prozess-grid, .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">Costa & McLaren Versicherungsmakler GmbH</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="gewerbe.html">Gewerbe & Industriekunden</a></li>
+      <li><a href="privatkunden.html" class="active">Privatkunden</a></li>
+      <li><a href="index.html#about">Über uns</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+    <button class="nav-login">Login</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-label">Unsere Leistungen</p>
+      <h1 class="hero-title">Privatkunden</h1>
+      <p class="hero-sub">Persönlicher Versicherungsschutz für anspruchsvolle Privatpersonen – diskret, individuell und auf höchstem Niveau.</p>
+      <div class="hero-btns">
+        <a href="index.html#kontakt" class="btn-white">Beratung vereinbaren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EINLEITUNG -->
+  <section class="section-intro">
+    <div class="inner">
+      <p class="section-label reveal">Für Privatpersonen</p>
+      <h2 class="section-title reveal">Ihr persönlicher Versicherungsmakler</h2>
+      <p class="section-text reveal">Ihre persönliche Situation ist einzigartig — Ihr Versicherungsschutz sollte es ebenfalls sein. Als zugelassener Versicherungsmakler nach § 34d GewO analysieren wir Ihren individuellen Bedarf und entwickeln ein maßgeschneidertes Schutzkonzept, das wirklich zu Ihrem Leben passt.</p>
+      <br>
+      <p class="section-text reveal">Wir arbeiten ausschließlich in Ihrem Interesse, unabhängig von einzelnen Versicherern. Diskret, kompetent und auf Augenhöhe — für Privatpersonen mit dem Anspruch auf das Beste.</p>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="section-leistungen">
+    <div class="inner">
+      <p class="section-label reveal">Leistungsbereiche</p>
+      <h2 class="section-title reveal">Unsere Leistungen im Überblick</h2>
+      <div class="leistungen-grid">
+        <div class="leistung-card reveal">
+          <div class="l-num">01</div>
+          <h3 class="l-name">Privathaftpflichtversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Schutz gegen Schadensersatzansprüche Dritter bei Personen-, Sach- und Vermögensschäden. Eine der wichtigsten Versicherungen für Privatpersonen — wir sorgen für eine lückenlose Deckung.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">02</div>
+          <h3 class="l-name">Hausratversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Absicherung Ihres gesamten Hausrats gegen Feuer, Einbruchdiebstahl, Leitungswasser, Sturm und weitere Gefahren. Inklusive hochwertiger Sonderregelungen für Kunst, Schmuck und Antiquitäten.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">03</div>
+          <h3 class="l-name">Wohngebäudeversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Umfassender Schutz für Ihre Immobilie — gegen Feuer, Sturm, Hagel, Leitungswasser und Elementarschäden. Individuell angepasst an den Wert und die Besonderheiten Ihres Eigentums.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">04</div>
+          <h3 class="l-name">Private Kranken- & Pflegeversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Ob private Krankenversicherung oder Krankenzusatzversicherung — wir analysieren Ihre Situation und finden die optimale Absicherung für Ihre Gesundheit und die Ihrer Familie.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">05</div>
+          <h3 class="l-name">Berufsunfähigkeitsversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Absicherung Ihrer Arbeitskraft — dem wertvollsten Gut, das Sie besitzen. Im Fall einer Berufsunfähigkeit sichert diese Versicherung Ihren Lebensstandard langfristig ab.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">06</div>
+          <h3 class="l-name">Risikolebensversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Finanzielle Absicherung Ihrer Angehörigen im Todesfall. Besonders wichtig für Familien, Immobilieneigentümer und Personen mit finanziellen Verpflichtungen.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">07</div>
+          <h3 class="l-name">Kfz-Versicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Optimaler Schutz für Ihr Fahrzeug — von der Haftpflicht bis zur Vollkasko. Wir vergleichen die besten Konditionen und sichern Ihren Fuhrpark zu wirtschaftlich sinnvollen Konditionen ab.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">08</div>
+          <h3 class="l-name">Rechtsschutzversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Rechtliche Absicherung für Sie und Ihre Familie — im Privat-, Berufs- und Verkehrsbereich. Damit Sie Ihr Recht durchsetzen können, ohne auf die Kosten achten zu müssen.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">09</div>
+          <h3 class="l-name">Unfallversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Finanzielle Absicherung bei dauerhaften körperlichen Beeinträchtigungen durch Unfälle — weltweit und rund um die Uhr. Individuell auf Ihre Lebenssituation abgestimmt.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">10</div>
+          <h3 class="l-name">Reiseversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Sorgenfrei reisen mit umfassendem Schutz: Reiserücktritt, Reiseabbruch, Auslandskranken­versicherung und Gepäckschutz — für Urlaub und Geschäftsreisen weltweit.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">11</div>
+          <h3 class="l-name">Betriebliche Altersversorgung (bAV)</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Steuerlich begünstigte Altersvorsorge über den Arbeitgeber — wir beraten Sie zu den besten Modellen und optimieren Ihre persönliche Vorsorgestrategie für den Ruhestand.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">12</div>
+          <h3 class="l-name">Cyber-Versicherung Privat</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Schutz vor den finanziellen Folgen von Identitätsdiebstahl, Datenmissbrauch und Cyberangriffen im privaten Bereich. Inklusive Soforthilfe und rechtlicher Unterstützung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VORGEHENSWEISE -->
+  <section class="section-prozess">
+    <div class="inner">
+      <p class="section-label reveal">Vorgehensweise</p>
+      <h2 class="section-title reveal">Unsere Vorgehensweise</h2>
+      <div class="prozess-grid">
+        <div class="prozess-step reveal">
+          <div class="p-num">01</div>
+          <h3 class="p-name">Erstgespräch</h3>
+          <div class="p-line"></div>
+          <p class="p-desc">Wir lernen Sie kennen: Ihre Lebenssituation, Ihre Wünsche und Ihre bestehenden Versicherungen. Persönlich, diskret und auf Augenhöhe.</p>
+        </div>
+        <div class="prozess-step reveal">
+          <div class="p-num">02</div>
+          <h3 class="p-name">Bedarfsanalyse</h3>
+          <div class="p-line"></div>
+          <p class="p-desc">Systematische Erfassung Ihrer individuellen Risiken und Lebenssituation. Wir identifizieren Deckungslücken und Optimierungspotenziale in Ihrem bestehenden Schutz.</p>
+        </div>
+        <div class="prozess-step reveal">
+          <div class="p-num">03</div>
+          <h3 class="p-name">Marktvergleich & Konzeption</h3>
+          <div class="p-line"></div>
+          <p class="p-desc">Wir vergleichen die relevanten Anbieter und entwickeln ein individuelles Versicherungskonzept — wirtschaftlich sinnvoll, inhaltlich belastbar und auf Sie zugeschnitten.</p>
+        </div>
+        <div class="prozess-step reveal">
+          <div class="p-num">04</div>
+          <h3 class="p-name">Umsetzung & Betreuung</h3>
+          <div class="p-line"></div>
+          <p class="p-desc">Übernahme der gesamten Abwicklung: Antragstellung, Policierung, Vertragsverwaltung. Laufende Überprüfung bei veränderten Lebensumständen.</p>
+        </div>
+        <div class="prozess-step reveal">
+          <div class="p-num">05</div>
+          <h3 class="p-name">Schadenmanagement</h3>
+          <div class="p-line"></div>
+          <p class="p-desc">Im Schadensfall übernehmen wir die vollständige Kommunikation mit dem Versicherer und begleiten Sie bis zur abschließenden Regulierung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-cta">
+    <div class="cta-inner">
+      <div>
+        <h2 class="cta-title reveal">Lassen Sie uns über Ihren persönlichen Versicherungsschutz sprechen.</h2>
+        <p class="cta-text reveal">Vereinbaren Sie ein unverbindliches Erstgespräch. Wir nehmen uns die Zeit, Ihre Situation zu verstehen — und entwickeln eine Lösung, die wirklich zu Ihrem Leben passt.</p>
+        <a href="index.html#kontakt" class="btn-dark reveal">Beratung vereinbaren</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div><div class="footer-brand">Costa & McLaren<br>Versicherungsmakler GmbH</div><p class="footer-sub">Präzise. Diskret. Auf Augenhöhe.</p></div>
+      <div><div class="footer-col-title">Standort</div><ul class="footer-col-list"><li>Poststr. 60</li><li>41516 Grevenbroich</li></ul></div>
+      <div><div class="footer-col-title">Kontakt</div><ul class="footer-col-list"><li><a href="mailto:info@costa-mclaren.de">info@costa-mclaren.de</a></li><li>02181-68717</li></ul></div>
+      <div><div class="footer-col-title">Info</div><ul class="footer-col-list"><li><a href="index.html#about">Über uns</a></li><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Costa & McLaren Versicherungsmakler GmbH. Alle Rechte vorbehalten.</span>
+      <span class="footer-copy">Versicherungsmakler (§ 34d GewO)</span>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80) })
+    }, { threshold: 0.1 })
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').style.background = window.scrollY > 50 ? 'rgba(242,241,239,0.99)' : 'rgba(242,241,239,0.96)'
+    })
+  </script>
+</body>
+</html>
