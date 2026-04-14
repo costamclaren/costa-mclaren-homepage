@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gewerbe & Industriekunden – Costa & McLaren Versicherungsmakler GmbH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --anthrazit: #2d3035;
+      --bg: #f2f1ef;
+      --white: #ffffff;
+      --text: #1a1c1e;
+      --muted: #6b6f74;
+      --gold: #b89a6a;
+      --border: rgba(45,48,53,0.12);
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Lato', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 90px; background: rgba(242,241,239,0.96);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; padding: 0 56px;
+      transition: background 0.3s;
+    }
+    .nav-logo { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); letter-spacing: 0.01em; white-space: nowrap; margin-right: auto; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-family: var(--sans); font-size: 15px; font-weight: 400; color: var(--text); letter-spacing: 0.04em; white-space: nowrap; position: relative; padding-bottom: 2px; }
+    .nav-links a.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 1px; background: var(--text); }
+    .nav-login { margin-left: 32px; font-family: var(--sans); font-size: 13px; font-weight: 400; letter-spacing: 0.06em; padding: 8px 22px; border: 1px solid var(--text); color: var(--text); background: transparent; cursor: pointer; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+    .nav-login:hover { background: var(--text); color: var(--white); }
+
+    /* HERO */
+    .hero { position: relative; height: 65vh; min-height: 460px; display: flex; align-items: flex-end; padding-bottom: 88px; overflow: hidden; background: var(--anthrazit); }
+    .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&q=80'); background-size: cover; background-position: center; opacity: 0.4; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(45,48,53,0.2) 0%, rgba(45,48,53,0.55) 50%, rgba(45,48,53,0.88) 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 1280px; width: 100%; margin: 0 auto; padding: 0 56px; }
+    .hero-label { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; opacity: 0; animation: fadeUp 1s 0.2s forwards; }
+    .hero-title { font-family: var(--serif); font-size: clamp(32px, 4.5vw, 62px); font-weight: 400; color: #fff; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 18px; opacity: 0; transform: translateY(30px); animation: fadeUp 1s 0.35s forwards; }
+    .hero-sub { font-family: var(--serif); font-size: clamp(16px, 2vw, 24px); font-style: italic; color: rgba(255,255,255,0.75); line-height: 1.5; margin-bottom: 36px; opacity: 0; transform: translateY(30px); animation: fadeUp 1s 0.5s forwards; }
+    .hero-btns { opacity: 0; transform: translateY(30px); animation: fadeUp 1s 0.65s forwards; }
+    .btn-white { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; background: #fff; color: var(--anthrazit); display: inline-block; transition: background 0.2s; }
+    .btn-white:hover { background: #e8e6e3; }
+
+    /* SECTIONS */
+    .inner { max-width: 1280px; margin: 0 auto; }
+    .section-label { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .section-title { font-family: var(--serif); font-size: clamp(26px, 2.8vw, 42px); font-weight: 400; color: var(--text); line-height: 1.2; margin-bottom: 28px; }
+    .section-text { font-family: var(--sans); font-size: 15px; line-height: 1.9; color: var(--muted); font-weight: 300; max-width: 760px; }
+
+    /* EINLEITUNG */
+    .section-intro { background: var(--bg); padding: 112px 56px; }
+    .section-intro .section-title { max-width: 640px; }
+    .section-intro .section-text { margin-bottom: 20px; }
+
+    /* LEISTUNGEN */
+    .section-leistungen { background: var(--white); padding: 112px 56px; }
+    .section-leistungen .section-title { margin-bottom: 56px; }
+    .leistungen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .leistung-card { background: var(--bg); padding: 40px 32px; border: 1px solid rgba(45,48,53,0.07); transition: background 0.35s, border-color 0.35s; cursor: default; }
+    .leistung-card:hover { background: var(--anthrazit); border-color: var(--anthrazit); }
+    .leistung-card:hover .l-num, .leistung-card:hover .l-name, .leistung-card:hover .l-desc { color: rgba(255,255,255,0.85); }
+    .leistung-card:hover .l-line { background: rgba(255,255,255,0.15); }
+    .l-num { font-family: var(--serif); font-size: 12px; color: var(--muted); margin-bottom: 22px; transition: color 0.35s; }
+    .l-name { font-family: var(--serif); font-size: 19px; font-weight: 400; color: var(--text); line-height: 1.3; margin-bottom: 14px; transition: color 0.35s; }
+    .l-line { width: 28px; height: 1px; background: var(--border); margin-bottom: 14px; transition: background 0.35s; }
+    .l-desc { font-family: var(--sans); font-size: 14px; line-height: 1.75; color: var(--muted); font-weight: 300; transition: color 0.35s; }
+
+    /* BRANCHEN */
+    .section-branchen { background: var(--bg); padding: 112px 56px; }
+    .branchen-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin: 48px 0; }
+    .branche-item { background: var(--white); padding: 28px 24px; border: 1px solid rgba(45,48,53,0.07); font-family: var(--serif); font-size: 16px; font-weight: 400; color: var(--text); transition: background 0.25s, color 0.25s; }
+    .branche-item:hover { background: var(--anthrazit); color: #fff; }
+    .branchen-note { font-family: var(--sans); font-size: 14px; font-weight: 300; color: var(--muted); font-style: italic; margin-top: 32px; }
+
+    /* VORGEHENSWEISE */
+    .section-prozess { background: var(--anthrazit); padding: 112px 56px; }
+    .section-prozess .section-label { color: var(--gold); }
+    .section-prozess .section-title { color: #fff; margin-bottom: 72px; }
+    .prozess-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+    .prozess-step { padding: 40px 28px; border: 1px solid rgba(255,255,255,0.1); }
+    .p-num { font-family: var(--serif); font-size: 36px; font-weight: 400; color: var(--gold); margin-bottom: 24px; line-height: 1; }
+    .p-name { font-family: var(--serif); font-size: 18px; font-weight: 400; color: #fff; margin-bottom: 14px; line-height: 1.3; }
+    .p-line { width: 28px; height: 1px; background: rgba(255,255,255,0.2); margin-bottom: 14px; }
+    .p-desc { font-family: var(--sans); font-size: 13px; line-height: 1.75; color: rgba(255,255,255,0.55); font-weight: 300; }
+
+    /* CTA */
+    .section-cta { background: var(--bg); padding: 112px 56px; }
+    .cta-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+    .cta-title { font-family: var(--serif); font-size: clamp(28px, 3vw, 44px); font-weight: 400; color: var(--text); line-height: 1.2; margin-bottom: 24px; }
+    .cta-text { font-family: var(--sans); font-size: 15px; line-height: 1.85; color: var(--muted); font-weight: 300; margin-bottom: 40px; }
+    .btn-dark { display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; background: var(--anthrazit); color: #fff; border: none; cursor: pointer; transition: background 0.2s; }
+    .btn-dark:hover { background: #3a3f45; }
+
+    /* FOOTER */
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 80px 56px 48px; }
+    .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; margin-bottom: 64px; }
+    .footer-brand { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); line-height: 1.25; margin-bottom: 14px; }
+    .footer-sub { font-family: var(--sans); font-size: 13px; color: var(--muted); font-weight: 300; line-height: 1.6; }
+    .footer-col-title { font-family: var(--serif); font-size: 19px; font-weight: 400; color: var(--text); margin-bottom: 20px; }
+    .footer-col-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col-list li, .footer-col-list a { font-family: var(--sans); font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.6; }
+    .footer-col-list a:hover { color: var(--text); text-decoration: underline; }
+    .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(45,48,53,0.07); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: var(--sans); font-size: 12px; color: var(--muted); font-weight: 300; }
+
+    /* ANIMATIONEN */
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .leistungen-grid { grid-template-columns: 1fr 1fr; }
+      .branchen-grid { grid-template-columns: repeat(2, 1fr); }
+      .prozess-grid { grid-template-columns: 1fr 1fr; }
+      .cta-inner { grid-template-columns: 1fr; gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero-content, .section-intro, .section-leistungen, .section-branchen, .section-prozess, .section-cta, footer { padding-left: 24px; padding-right: 24px; }
+      .leistungen-grid, .branchen-grid, .prozess-grid, .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">Costa & McLaren Versicherungsmakler GmbH</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="gewerbe.html" class="active">Gewerbe & Industriekunden</a></li>
+      <li><a href="privatkunden.html">Privatkunden</a></li>
+      <li><a href="index.html#about">Über uns</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+    <button class="nav-login">Login</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-label">Unsere Leistungen</p>
+      <h1 class="hero-title">Gewerbe & Industriekunden</h1>
+      <p class="hero-sub">Versicherungslösungen für Unternehmen – strategisch, präzise und auf Ihre Branche abgestimmt.</p>
+      <div class="hero-btns">
+        <a href="index.html#kontakt" class="btn-white">Beratung vereinbaren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EINLEITUNG -->
+  <section class="section-intro">
+    <div class="inner">
+      <p class="section-label reveal">Für Unternehmen</p>
+      <h2 class="section-title reveal">Ihr Versicherungsmakler für unternehmerische Risiken</h2>
+      <p class="section-text reveal">Unternehmerische Risiken sind komplex — und selten mit Standardlösungen beherrschbar. Als zugelassener Versicherungsmakler nach § 34d GewO analysieren wir Ihre individuelle Risikostruktur und entwickeln maßgeschneiderte Versicherungskonzepte, die Ihr Unternehmen wirksam absichern.</p>
+      <br>
+      <p class="section-text reveal">Wir arbeiten ausschließlich in Ihrem Interesse und sind keinem Versicherer verpflichtet. Unser Ziel ist es, für jede unternehmerische Anforderung die wirtschaftlich und inhaltlich beste Lösung zu finden — branchenübergreifend, herstellerunabhängig und mit höchstem Qualitätsanspruch.</p>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="section-leistungen">
+    <div class="inner">
+      <p class="section-label reveal">Leistungsbereiche</p>
+      <h2 class="section-title reveal">Unsere Leistungen im Überblick</h2>
+      <div class="leistungen-grid">
+        <div class="leistung-card reveal">
+          <div class="l-num">01</div>
+          <h3 class="l-name">Betriebshaftpflichtversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Absicherung gegen Personen-, Sach- und Vermögensschäden, die aus Ihrer betrieblichen Tätigkeit resultieren. Wir prüfen bestehende Deckungen auf Lücken und passen den Schutz an Ihre tatsächliche Risikolage an.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">02</div>
+          <h3 class="l-name">Berufshaftpflicht & Vermögensschadenhaftpflicht</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Für beratende Berufe, Freiberufler und Dienstleister: Absicherung gegen finanzielle Schäden, die aus fehlerhafter Beratung, Planung oder Dienstleistung entstehen.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">03</div>
+          <h3 class="l-name">Gewerbliche Sachversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Schutz für Ihre Betriebseinrichtung, Maschinen, Waren und Vorräte — gegen Feuer, Leitungswasser, Sturm, Einbruchdiebstahl und weitere Gefahren. Auf Wunsch als All-Risk-Deckung oder Inhaltsversicherung.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">04</div>
+          <h3 class="l-name">Gebäudeversicherung für Gewerbeobjekte</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Umfassender Schutz für betrieblich genutzte Immobilien — von der Produktionshalle bis zum Bürogebäude. Inklusive Elementarschadenabsicherung und Mietausfalldeckung.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">05</div>
+          <h3 class="l-name">Technische Versicherungen</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Maschinenversicherung, Elektronikversicherung, Montageversicherung und Bauleistungsversicherung — individuell auf Ihren Maschinenpark und Ihre Projekte zugeschnitten.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">06</div>
+          <h3 class="l-name">Betriebsunterbrechungsversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Absicherung des entgangenen Betriebsergebnisses bei Unterbrechung Ihrer Geschäftstätigkeit durch versicherte Sachschäden. Existenzsicherung für den Ernstfall.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">07</div>
+          <h3 class="l-name">Cyber-Versicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Schutz gegen die finanziellen Folgen von Cyberangriffen, Datenverlust, Datenschutzverletzungen und IT-Ausfällen. Inklusive Krisenmanagement, forensischer Analyse und Haftpflichtkomponente.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">08</div>
+          <h3 class="l-name">Transportversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Absicherung Ihrer Waren und Güter auf dem Transportweg — national und international. Für Speditionen, Handelsunternehmen und produzierende Betriebe.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">09</div>
+          <h3 class="l-name">Directors & Officers (D&O) Versicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Persönliche Haftungsabsicherung für Geschäftsführer, Vorstände und Aufsichtsräte. Schutz des Privatvermögens bei Inanspruchnahme wegen Managementfehlern.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">10</div>
+          <h3 class="l-name">Firmenrechtsschutzversicherung</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Rechtliche Absicherung für Ihr Unternehmen bei arbeitsrechtlichen, vertragsrechtlichen oder steuerrechtlichen Auseinandersetzungen.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">11</div>
+          <h3 class="l-name">Betriebliche Altersversorgung (bAV)</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Konzeption und Umsetzung effizienter Versorgungslösungen für Ihre Mitarbeiter — unter Berücksichtigung steuerlicher Vorteile und arbeitsrechtlicher Anforderungen.</p>
+        </div>
+        <div class="leistung-card reveal">
+          <div class="l-num">12</div>
+          <h3 class="l-name">Flottenversicherung & Fuhrparkmanagement</h3>
+          <div class="l-line"></div>
+          <p class="l-desc">Wirtschaftliche Absicherung Ihres Fahrzeugbestands — vom einzelnen Dienstwagen bis zur gesamten Nutzfahrzeugflotte. Inklusive Schadenmanagement und Rahmenvertragskonditionen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANCHEN -->
+  <section class="section-branchen">
+    <div class="inner">
+      <p class="section-label reveal">Branchen</p>
+      <h2 class="section-title reveal">Branchenexpertise</h2>
+      <p class="section-text reveal">Wir betreuen Unternehmen aus unterschiedlichsten Branchen und verstehen die spezifischen Risiken, die mit Ihrer Geschäftstätigkeit verbunden sind. Zu unseren Schwerpunkten gehören unter anderem:</p>
+      <div class="branchen-grid">
+        <div class="branche-item reveal">Handwerk & Baugewerbe</div>
+        <div class="branche-item reveal">Handel & E-Commerce</div>
+        <div class="branche-item reveal">Produktion & Industrie</div>
+        <div class="branche-item reveal">IT & Technologie</div>
+        <div class="branche-item reveal">Gesundheitswesen & Pflege</div>
+        <div class="branche-item reveal">Gastronomie & Hotellerie</div>
+        <div class="branche-item reveal">Immobilienwirtschaft</div>
+        <div class="branche-item reveal">Freiberufler & Beratung</div>
+        <div class="branche-item reveal">Transport & Logistik</div>
+        <div class="branche-item reveal">Startups & Gründer</div>
+      </div>
+      <p class="branchen-note reveal">Ihre Branche ist nicht aufgeführt? Sprechen Sie uns an — wir entwickeln für jedes Geschäftsmodell eine passende Lösung.</p>
+    </div>
+  </section>
+
+  <!-- VORGEHENSWEISE -->
+  <section class="section-prozess">
+    <div class="inner">
+      <p class="section-label reveal">Vorgehensweise</p>
+      <h2 class="section-title reveal">Unsere Vorgehensweise</h2>
+      <div class="prozess-grid">
+        <div class="prozess-step reveal">
+          <div class="p-num">01</div>
+          <h3 class="p-name">Erstgespräch</h3>
+          <div class="p-line"></div>
+          <p class="p-desc">Wir lernen Ihr Unternehmen kennen: Geschäftsmodell, Branche, bestehende Versicherungen, aktuelle Herausforderungen.</p>
+        </div>
+        <div class="prozess-step reveal">
+          <div class="p-num">02</div>
+          <h3 class="p-name">Risikoanalyse</h3>
+          <div class="p-line"></div>
+          <p class="p-desc">Systematische Erfassung und Bewertung Ihrer unternehmerischen Risiken. Identifikation von Deckungslücken und Optimierungspotenzialen.</p>
+        </div>
+        <div class="prozess-step reveal">
+          <div class="p-num">03</div>
+          <h3 class="p-name">Marktvergleich & Konzeption</h3>
+          <div class="p-line"></div>
+          <p class="p-desc">Wir vergleichen die relevanten Anbieter und entwickeln ein individuelles Versicherungskonzept — wirtschaftlich sinnvoll und inhaltlich belastbar.</p>
+        </div>
+        <div class="prozess-step reveal">
+          <div class="p-num">04</div>
+          <h3 class="p-name">Umsetzung & Betreuung</h3>
+          <div class="p-line"></div>
+          <p class="p-desc">Übernahme der gesamten Abwicklung: Antragstellung, Policierung, Vertragsverwaltung. Laufende Überprüfung und Anpassung an veränderte Rahmenbedingungen.</p>
+        </div>
+        <div class="prozess-step reveal">
+          <div class="p-num">05</div>
+          <h3 class="p-name">Schadenmanagement</h3>
+          <div class="p-line"></div>
+          <p class="p-desc">Im Schadensfall übernehmen wir die vollständige Kommunikation mit dem Versicherer und begleiten Sie bis zur Regulierung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-cta">
+    <div class="cta-inner">
+      <div>
+        <h2 class="cta-title reveal">Lassen Sie uns über Ihren Versicherungsschutz sprechen.</h2>
+        <p class="cta-text reveal">Vereinbaren Sie ein unverbindliches Erstgespräch. Wir nehmen uns die Zeit, Ihre Situation zu verstehen — und liefern Lösungen, die zu Ihrem Unternehmen passen.</p>
+        <a href="index.html#kontakt" class="btn-dark reveal">Beratung vereinbaren</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div><div class="footer-brand">Costa & McLaren<br>Versicherungsmakler GmbH</div><p class="footer-sub">Präzise. Diskret. Auf Augenhöhe.</p></div>
+      <div><div class="footer-col-title">Standort</div><ul class="footer-col-list"><li>Beispielstraße 123</li><li>12345 Berlin</li></ul></div>
+      <div><div class="footer-col-title">Kontakt</div><ul class="footer-col-list"><li><a href="mailto:email@beispiel.com">email@beispiel.com</a></li><li>+49 55 55555</li></ul></div>
+      <div><div class="footer-col-title">Info</div><ul class="footer-col-list"><li><a href="index.html#about">Über uns</a></li><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Costa & McLaren Versicherungsmakler GmbH. Alle Rechte vorbehalten.</span>
+      <span class="footer-copy">Versicherungsmakler (§ 34d GewO)</span>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80) })
+    }, { threshold: 0.1 })
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').style.background = window.scrollY > 50 ? 'rgba(242,241,239,0.99)' : 'rgba(242,241,239,0.96)'
+    })
+  </script>
+</body>
+</html>
