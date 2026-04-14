@@ -89,7 +89,11 @@
     .section-prozess .section-label { color: var(--gold); }
     .section-prozess .section-title { color: #fff; margin-bottom: 72px; }
     .prozess-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
-    .prozess-step { padding: 40px 28px; border: 1px solid rgba(255,255,255,0.1); }
+    .prozess-step { padding: 40px 28px; border: 1px solid rgba(255,255,255,0.1); transition: background 0.3s, border-color 0.3s; }
+    .prozess-step:hover { background: rgba(255,255,255,0.06); border-color: var(--gold); }
+    .prozess-step:hover .p-num { color: #fff; }
+    .prozess-step:hover .p-name { color: #fff; }
+    .prozess-step:hover .p-desc { color: rgba(255,255,255,0.8); }
     .p-num { font-family: var(--serif); font-size: 36px; font-weight: 400; color: var(--gold); margin-bottom: 24px; line-height: 1; }
     .p-name { font-family: var(--serif); font-size: 18px; font-weight: 400; color: #fff; margin-bottom: 14px; line-height: 1.3; }
     .p-line { width: 28px; height: 1px; background: rgba(255,255,255,0.2); margin-bottom: 14px; }
