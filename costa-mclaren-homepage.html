@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Costa & McLaren Versicherungsmakler GmbH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --anthrazit: #2d3035;
+      --bg: #f2f1ef;
+      --white: #ffffff;
+      --text: #1a1c1e;
+      --muted: #6b6f74;
+      --gold: #b89a6a;
+      --border: rgba(45,48,53,0.12);
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Lato', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 72px; background: rgba(242,241,239,0.96);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; padding: 0 56px;
+      transition: background 0.3s;
+    }
+    .nav-logo { font-family: var(--serif); font-size: 16px; font-weight: 400; color: var(--text); letter-spacing: 0.01em; white-space: nowrap; margin-right: auto; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-family: var(--sans); font-size: 13px; font-weight: 400; color: var(--text); letter-spacing: 0.04em; white-space: nowrap; position: relative; padding-bottom: 2px; }
+    .nav-links a.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 1px; background: var(--text); }
+    .nav-login { margin-left: 32px; font-family: var(--sans); font-size: 13px; font-weight: 400; letter-spacing: 0.06em; padding: 8px 22px; border: 1px solid var(--text); color: var(--text); background: transparent; cursor: pointer; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+    .nav-login:hover { background: var(--text); color: var(--white); }
+
+    /* HERO */
+    .hero { position: relative; height: 100vh; min-height: 640px; display: flex; align-items: flex-end; padding-bottom: 96px; overflow: hidden; background: var(--anthrazit); }
+    .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1497366754035-f200581374b6?w=1800&q=80'); background-size: cover; background-position: center; opacity: 0.4; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(45,48,53,0.2) 0%, rgba(45,48,53,0.55) 50%, rgba(45,48,53,0.85) 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 1280px; width: 100%; margin: 0 auto; padding: 0 56px; }
+    .hero-title { font-family: var(--serif); font-size: clamp(38px, 5.5vw, 72px); font-weight: 400; color: #fff; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 16px; opacity: 0; transform: translateY(30px); animation: fadeUp 1s 0.2s forwards; }
+    .hero-tagline { opacity: 0; transform: translateY(30px); animation: fadeUp 1s 0.45s forwards; }
+    .hero-tagline p { font-family: var(--serif); font-size: clamp(24px, 3.2vw, 48px); font-weight: 400; font-style: italic; color: rgba(255,255,255,0.82); line-height: 1.4; }
+    .hero-btns { display: flex; gap: 16px; margin-top: 44px; flex-wrap: wrap; opacity: 0; transform: translateY(30px); animation: fadeUp 1s 0.7s forwards; }
+    .btn-white { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; background: #fff; color: var(--anthrazit); display: inline-block; transition: background 0.2s; }
+    .btn-white:hover { background: #e8e6e3; }
+    .btn-outline { font-family: var(--sans); font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.45); display: inline-block; transition: border-color 0.2s, background 0.2s; }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.06); }
+    .hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeIn 1s 1.4s forwards; }
+    .hero-scroll span { font-family: var(--sans); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .scroll-bar { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent); animation: scrollAnim 2s 1.6s ease-in-out infinite; }
+
+    /* LEISTUNGEN */
+    .section-services { background: var(--bg); padding: 128px 56px; }
+    .inner { max-width: 1280px; margin: 0 auto; }
+    .section-label { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .section-title { font-family: var(--serif); font-size: clamp(28px, 3vw, 44px); font-weight: 400; color: var(--text); line-height: 1.2; max-width: 560px; margin-bottom: 72px; }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .service-card { background: var(--white); padding: 48px 36px; border: 1px solid rgba(45,48,53,0.07); transition: background 0.35s, border-color 0.35s; cursor: default; }
+    .service-card:hover { background: var(--anthrazit); border-color: var(--anthrazit); }
+    .service-card:hover .s-num, .service-card:hover .s-name, .service-card:hover .s-desc { color: rgba(255,255,255,0.85); }
+    .service-card:hover .s-line { background: rgba(255,255,255,0.15); }
+    .s-num { font-family: var(--serif); font-size: 12px; color: var(--muted); margin-bottom: 28px; transition: color 0.35s; }
+    .s-name { font-family: var(--serif); font-size: 21px; font-weight: 400; color: var(--text); line-height: 1.3; margin-bottom: 18px; transition: color 0.35s; }
+    .s-line { width: 28px; height: 1px; background: var(--border); margin-bottom: 18px; transition: background 0.35s; }
+    .s-desc { font-family: var(--sans); font-size: 14px; line-height: 1.75; color: var(--muted); font-weight: 300; transition: color 0.35s; }
+
+    /* ÜBER UNS */
+    .section-about { background: var(--anthrazit); padding: 128px 56px; }
+    .about-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+    .about-label { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .about-title { font-family: var(--serif); font-size: clamp(26px, 2.8vw, 40px); font-weight: 400; color: #fff; line-height: 1.2; margin-bottom: 28px; }
+    .about-text { font-family: var(--sans); font-size: 15px; line-height: 1.85; color: rgba(255,255,255,0.6); font-weight: 300; margin-bottom: 44px; }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .stat-num { font-family: var(--serif); font-size: 52px; font-weight: 400; color: #fff; line-height: 1; margin-bottom: 8px; }
+    .stat-label { font-family: var(--sans); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.38); }
+
+    /* KONTAKT */
+    .section-contact { background: var(--bg); padding: 128px 56px; }
+    .contact-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 96px; align-items: start; }
+    .contact-title { font-family: var(--serif); font-size: clamp(34px, 4.5vw, 62px); font-weight: 400; color: var(--text); line-height: 1.05; margin-bottom: 24px; }
+    .contact-text { font-family: var(--sans); font-size: 15px; line-height: 1.8; color: var(--muted); font-weight: 300; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .form-label span { font-weight: 300; opacity: 0.55; }
+    .form-input, .form-textarea { font-family: var(--sans); font-size: 15px; font-weight: 300; color: var(--text); background: transparent; border: none; outline: none; width: 100%; resize: none; }
+    .form-textarea { min-height: 90px; }
+    .btn-dark { margin-top: 36px; display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; background: var(--anthrazit); color: #fff; border: none; cursor: pointer; transition: background 0.2s; }
+    .btn-dark:hover { background: #3a3f45; }
+
+    /* FOOTER */
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 80px 56px 48px; }
+    .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; margin-bottom: 64px; }
+    .footer-brand { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); line-height: 1.25; margin-bottom: 14px; }
+    .footer-sub { font-family: var(--sans); font-size: 13px; color: var(--muted); font-weight: 300; line-height: 1.6; }
+    .footer-col-title { font-family: var(--serif); font-size: 19px; font-weight: 400; color: var(--text); margin-bottom: 20px; }
+    .footer-col-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col-list li, .footer-col-list a { font-family: var(--sans); font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.6; }
+    .footer-col-list a:hover { color: var(--text); text-decoration: underline; }
+    .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(45,48,53,0.07); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: var(--sans); font-size: 12px; color: var(--muted); font-weight: 300; }
+
+    /* ANIMATIONEN */
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes scrollAnim {
+      0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+      50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+    }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 56px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero-content { padding: 0 24px; }
+      .section-services, .section-about, .section-contact, footer { padding-left: 24px; padding-right: 24px; }
+      .services-grid, .form-row, .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <span class="nav-logo">Costa & McLaren Versicherungsmakler GmbH</span>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Startseite</a></li>
+      <li><a href="#leistungen">Gewerbe & Industriekunden</a></li>
+      <li><a href="#leistungen">Privatkunden</a></li>
+      <li><a href="#about">Über uns</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <button class="nav-login">Login</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Exklusive Versicherungslösungen</h1>
+      <div class="hero-tagline">
+        <p>Präzise.</p>
+        <p>Diskret.</p>
+        <p>Auf Augenhöhe.</p>
+      </div>
+      <div class="hero-btns">
+        <a href="#kontakt" class="btn-white">Beratung vereinbaren</a>
+        <a href="#leistungen" class="btn-outline">Unsere Leistungen</a>
+      </div>
+    </div>
+    <div class="hero-scroll"><span>Scroll</span><div class="scroll-bar"></div></div>
+  </section>
+
+  <section class="section-services" id="leistungen">
+    <div class="inner">
+      <p class="section-label reveal">Unsere Leistungen</p>
+      <h2 class="section-title reveal">Maßgeschneiderter Versicherungsschutz für jeden Bedarf</h2>
+      <div class="services-grid">
+        <div class="service-card reveal"><div class="s-num">01</div><h3 class="s-name">Gewerbe & Industrie</h3><div class="s-line"></div><p class="s-desc">Umfassende Absicherung für Unternehmen jeder Größe – von der Betriebshaftpflicht bis zur Cyber-Versicherung. Individuell. Präzise. Verlässlich.</p></div>
+        <div class="service-card reveal"><div class="s-num">02</div><h3 class="s-name">Privatkunden</h3><div class="s-line"></div><p class="s-desc">Persönliche Beratung für anspruchsvolle Privatpersonen. Wir analysieren Ihren Bedarf und empfehlen den optimalen Schutz – diskret und auf Augenhöhe.</p></div>
+        <div class="service-card reveal"><div class="s-num">03</div><h3 class="s-name">Risikoanalyse</h3><div class="s-line"></div><p class="s-desc">Fundierte Analyse Ihrer bestehenden Versicherungen und Risiken. Wir decken Lücken auf und optimieren Ihren Schutz – transparent und nachvollziehbar.</p></div>
+        <div class="service-card reveal"><div class="s-num">04</div><h3 class="s-name">Schadenmanagement</h3><div class="s-line"></div><p class="s-desc">Im Schadensfall stehen wir an Ihrer Seite. Wir übernehmen die Kommunikation mit Versicherern und begleiten Sie durch den gesamten Prozess.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-about" id="about">
+    <div class="about-grid">
+      <div>
+        <p class="about-label reveal">Über uns</p>
+        <h2 class="about-title reveal">Unabhängige Beratung. Höchste Expertise.</h2>
+        <p class="about-text reveal">Als unabhängiger Versicherungsmakler sind wir ausschließlich Ihren Interessen verpflichtet. Keine Bindung an einzelne Versicherer – nur das Beste für unsere Kunden. Mit jahrelanger Erfahrung beraten wir Unternehmen und Privatpersonen mit dem Anspruch auf Exzellenz.</p>
+        <a href="#kontakt" class="btn-white reveal">Gespräch vereinbaren</a>
+      </div>
+      <div class="stats-grid">
+        <div class="reveal"><div class="stat-num">20+</div><div class="stat-label">Jahre Erfahrung</div></div>
+        <div class="reveal"><div class="stat-num">500+</div><div class="stat-label">Zufriedene Kunden</div></div>
+        <div class="reveal"><div class="stat-num">100%</div><div class="stat-label">Unabhängig</div></div>
+        <div class="reveal"><div class="stat-num">24/7</div><div class="stat-label">Erreichbar</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-contact" id="kontakt">
+    <div class="contact-grid">
+      <div>
+        <h2 class="contact-title reveal">Nimm Kontakt mit uns auf</h2>
+        <p class="contact-text reveal">Hast du Interesse an einer Zusammenarbeit? Fülle bitte das Formular aus und wir werden uns in Kürze bei dir melden. Wir freuen uns schon darauf, von dir zu hören.</p>
+      </div>
+      <form onsubmit="return false;" class="reveal">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Vorname <span>(erforderlich)</span></label><input type="text" class="form-input" placeholder="Max" /></div>
+          <div class="form-group"><label class="form-label">Nachname <span>(erforderlich)</span></label><input type="text" class="form-input" placeholder="Mustermann" /></div>
+        </div>
+        <div class="form-group full"><label class="form-label">E-Mail-Adresse <span>(erforderlich)</span></label><input type="email" class="form-input" placeholder="max@beispiel.de" /></div>
+        <div class="form-group full"><label class="form-label">Nachricht <span>(erforderlich)</span></label><textarea class="form-textarea" placeholder="Ihre Nachricht..."></textarea></div>
+        <button type="submit" class="btn-dark">Senden</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div><div class="footer-brand">Costa & McLaren<br>Versicherungsmakler GmbH</div><p class="footer-sub">Präzise. Diskret. Auf Augenhöhe.</p></div>
+      <div><div class="footer-col-title">Standort</div><ul class="footer-col-list"><li>Beispielstraße 123</li><li>12345 Berlin</li></ul></div>
+      <div><div class="footer-col-title">Kontakt</div><ul class="footer-col-list"><li><a href="mailto:email@beispiel.com">email@beispiel.com</a></li><li>+49 55 55555</li></ul></div>
+      <div><div class="footer-col-title">Info</div><ul class="footer-col-list"><li><a href="#about">Über uns</a></li><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Costa & McLaren Versicherungsmakler GmbH. Alle Rechte vorbehalten.</span>
+      <span class="footer-copy">Unabhängiger Versicherungsmakler</span>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80) })
+    }, { threshold: 0.1 })
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').style.background = window.scrollY > 50 ? 'rgba(242,241,239,0.99)' : 'rgba(242,241,239,0.96)'
+    })
+  </script>
+</body>
+</html>
