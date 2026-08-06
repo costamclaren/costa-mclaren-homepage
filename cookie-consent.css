@@ -1,0 +1,223 @@
+/* ============================================================
+   Cookie Consent – Marco Costa Design
+   TDDDG § 25 / DSGVO-konform
+   ============================================================ */
+
+/* Banner */
+.cc-banner {
+  position: fixed;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  max-width: 680px;
+  margin: 0 auto;
+  background: #ffffff;
+  color: #1a1c1e;
+  border: 1px solid rgba(45,48,53,0.14);
+  box-shadow: 0 16px 56px rgba(0,0,0,0.16);
+  padding: 32px 36px;
+  z-index: 9999;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.cc-banner.cc-visible { opacity: 1; transform: translateY(0); }
+.cc-banner[hidden] { display: none !important; }
+
+.cc-banner h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #1a1c1e;
+  margin: 0 0 12px 0;
+}
+.cc-banner p {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #6b6f74;
+  line-height: 1.75;
+  margin: 0 0 24px 0;
+}
+.cc-banner a { color: #1a1c1e; text-decoration: underline; text-underline-offset: 3px; }
+.cc-banner a:hover { color: #b89a6a; }
+
+/* Buttons */
+.cc-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+.cc-btn {
+  flex: 1 1 auto;
+  min-width: 130px;
+  padding: 13px 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid #2d3035;
+  background: transparent;
+  color: #2d3035;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.cc-btn:hover { background: #2d3035; color: #ffffff; }
+.cc-btn:focus-visible { outline: 2px solid #2d3035; outline-offset: 2px; }
+
+/* Modal Overlay */
+.cc-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,28,30,0.72);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.cc-modal-overlay.cc-visible { opacity: 1; }
+.cc-modal-overlay[hidden] { display: none !important; }
+
+.cc-modal {
+  background: #ffffff;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 48px;
+  border: 1px solid rgba(45,48,53,0.12);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+  font-family: 'Lato', sans-serif;
+}
+.cc-modal h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #1a1c1e;
+  margin: 0 0 14px 0;
+}
+.cc-modal > p {
+  font-size: 14px;
+  font-weight: 300;
+  color: #6b6f74;
+  line-height: 1.75;
+  margin: 0 0 28px 0;
+}
+
+/* Kategorie-Kacheln */
+.cc-category {
+  border: 1px solid rgba(45,48,53,0.12);
+  padding: 20px;
+  margin-bottom: 10px;
+}
+.cc-category-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+.cc-category-title {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1a1c1e;
+  margin: 0;
+}
+.cc-category-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: #6b6f74;
+  line-height: 1.65;
+  margin: 0 0 6px 0;
+}
+.cc-category-details { font-size: 12px; color: #6b6f74; margin-top: 10px; }
+.cc-category-details summary {
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 0;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.cc-category-details summary:hover { color: #1a1c1e; }
+.cc-category-details table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
+.cc-category-details th,
+.cc-category-details td {
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(45,48,53,0.08);
+  vertical-align: top;
+}
+.cc-category-details th {
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #6b6f74;
+}
+
+/* Toggle Switch */
+.cc-toggle { position: relative; display: inline-block; width: 44px; height: 24px; flex-shrink: 0; }
+.cc-toggle input { opacity: 0; width: 0; height: 0; }
+.cc-slider { position: absolute; inset: 0; background: #ccc; transition: 0.2s; cursor: pointer; }
+.cc-slider::before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  background: #ffffff;
+  transition: 0.2s;
+}
+.cc-toggle input:checked + .cc-slider { background: #2d3035; }
+.cc-toggle input:checked + .cc-slider::before { transform: translateX(20px); }
+.cc-toggle input:disabled + .cc-slider { background: #999; cursor: not-allowed; opacity: 0.55; }
+.cc-toggle input:focus-visible + .cc-slider { outline: 2px solid #2d3035; outline-offset: 2px; }
+
+.cc-modal-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(45,48,53,0.1);
+}
+
+/* Widerruf-Button */
+.cc-revoke {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px 16px;
+  background: #2d3035;
+  color: #ffffff;
+  border: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0.65;
+  z-index: 9998;
+  transition: opacity 0.2s;
+}
+.cc-revoke:hover { opacity: 1; }
+.cc-revoke[hidden] { display: none !important; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .cc-banner { left: 12px; right: 12px; bottom: 12px; padding: 24px 20px; }
+  .cc-btn { flex: 1 1 100%; }
+  .cc-modal { padding: 28px 20px; }
+  .cc-modal-buttons .cc-btn { flex: 1 1 100%; }
+}

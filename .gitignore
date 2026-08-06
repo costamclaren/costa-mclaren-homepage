@@ -5,3 +5,6 @@
 
 # Claude worktrees
 .claude/
+
+# Impeccable design-tool internals
+.impeccable/

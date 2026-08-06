@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutzerklärung – Costa & McLaren Versicherungsmakler GmbH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --anthrazit: #2d3035;
+      --bg: #f2f1ef;
+      --white: #ffffff;
+      --text: #1a1c1e;
+      --muted: #6b6f74;
+      --gold: #b89a6a;
+      --border: rgba(45,48,53,0.12);
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Lato', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 90px; background: rgba(242,241,239,0.96);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; padding: 0 56px;
+      transition: background 0.3s;
+    }
+    .nav-logo { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); letter-spacing: 0.01em; white-space: nowrap; margin-right: auto; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-family: var(--sans); font-size: 15px; font-weight: 400; color: var(--text); letter-spacing: 0.04em; white-space: nowrap; position: relative; padding-bottom: 2px; }
+    .nav-links a.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 1px; background: var(--text); }
+    .nav-login { margin-left: 32px; font-family: var(--sans); font-size: 13px; font-weight: 400; letter-spacing: 0.06em; padding: 8px 22px; border: 1px solid var(--text); color: var(--text); background: transparent; cursor: pointer; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+    .nav-login:hover { background: var(--text); color: var(--white); }
+
+    /* CONTENT */
+    .page-content { max-width: 860px; margin: 0 auto; padding: 160px 56px 120px; }
+    .page-label { font-family: var(--sans); font-size: 18px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .page-title { font-family: var(--serif); font-size: clamp(26px, 2.8vw, 42px); font-weight: 400; color: var(--text); line-height: 1.2; margin-bottom: 64px; }
+
+    .ds-section { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+    .ds-section:last-child { border-bottom: none; }
+    .ds-section h2 { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); margin-bottom: 20px; }
+    .ds-section h3 { font-family: var(--sans); font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text); margin-bottom: 12px; margin-top: 28px; }
+    .ds-section p { font-family: var(--sans); font-size: 17px; line-height: 1.9; color: var(--muted); font-weight: 300; margin-bottom: 12px; }
+    .ds-section p:last-child { margin-bottom: 0; }
+    .ds-section a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+    .ds-section a:hover { color: var(--gold); }
+    .ds-section ul { list-style: none; margin: 12px 0; padding: 0; }
+    .ds-section ul li { font-family: var(--sans); font-size: 17px; line-height: 1.9; color: var(--muted); font-weight: 300; padding-left: 20px; position: relative; }
+    .ds-section ul li::before { content: '▪'; position: absolute; left: 0; color: var(--gold); font-size: 12px; top: 4px; }
+
+    /* FOOTER */
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 80px 56px 48px; }
+    .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; margin-bottom: 64px; }
+    .footer-brand { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); line-height: 1.25; margin-bottom: 14px; }
+    .footer-sub { font-family: var(--sans); font-size: 15px; color: var(--muted); font-weight: 300; line-height: 1.6; }
+    .footer-col-title { font-family: var(--serif); font-size: 21px; font-weight: 400; color: var(--text); margin-bottom: 20px; }
+    .footer-col-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col-list li, .footer-col-list a { font-family: var(--sans); font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.6; }
+    .footer-col-list a:hover { color: var(--text); text-decoration: underline; }
+    .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(45,48,53,0.07); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: var(--sans); font-size: 12px; color: var(--muted); font-weight: 300; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .page-content { padding: 140px 24px 80px; }
+      footer { padding-left: 24px; padding-right: 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="cookie-consent.css" />
+  <link rel="stylesheet" href="login-modal.css" />
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="preview.html" class="nav-logo">Costa & McLaren Versicherungsmakler GmbH</a>
+    <ul class="nav-links">
+      <li><a href="preview.html">Startseite</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-content">
+    <p class="page-label">Rechtliches</p>
+    <h1 class="page-title">Datenschutzerklärung</h1>
+
+    <div class="ds-section">
+      <h2>1. Verantwortlicher</h2>
+      <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer nationaler Datenschutzgesetze sowie sonstiger datenschutzrechtlicher Bestimmungen ist:</p>
+      <p>Costa & McLaren Versicherungsmakler GmbH<br>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Poststraße+60,+41516+Grevenbroich" target="_blank" rel="noopener">Poststr. 60, 41516 Grevenbroich, Deutschland</a><br>
+      Telefon: <a href="tel:+49218168717">02181-68717</a><br>
+      E-Mail: <a href="mailto:info@costa-mclaren.de">info@costa-mclaren.de</a><br>
+      Internet: <a href="https://www.costa-mclaren.de">www.costa-mclaren.de</a></p>
+    </div>
+
+    <div class="ds-section">
+      <h2>2. Allgemeine Hinweise zur Datenverarbeitung</h2>
+      <h3>2.1 Umfang der Verarbeitung personenbezogener Daten</h3>
+      <p>Wir verarbeiten personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist. Die Verarbeitung erfolgt regelmäßig nur nach Einwilligung des Nutzers oder auf Grundlage einer gesetzlichen Erlaubnis.</p>
+      <h3>2.2 Rechtsgrundlagen der Verarbeitung</h3>
+      <p>Soweit wir für Verarbeitungsvorgänge personenbezogener Daten eine Einwilligung der betroffenen Person einholen, dient Art. 6 Abs. 1 lit. a DSGVO als Rechtsgrundlage.</p>
+      <p>Bei der Verarbeitung personenbezogener Daten, die zur Erfüllung eines Vertrages mit der betroffenen Person erforderlich ist, dient Art. 6 Abs. 1 lit. b DSGVO als Rechtsgrundlage. Dies gilt auch für Verarbeitungsvorgänge zur Durchführung vorvertraglicher Maßnahmen.</p>
+      <p>Soweit eine Verarbeitung personenbezogener Daten zur Erfüllung einer rechtlichen Verpflichtung erforderlich ist, dient Art. 6 Abs. 1 lit. c DSGVO als Rechtsgrundlage.</p>
+      <p>Ist die Verarbeitung zur Wahrung eines berechtigten Interesses erforderlich und überwiegen die Interessen, Grundrechte und Grundfreiheiten des Betroffenen nicht, dient Art. 6 Abs. 1 lit. f DSGVO als Rechtsgrundlage.</p>
+      <h3>2.3 Datenlöschung und Speicherdauer</h3>
+      <p>Die personenbezogenen Daten der betroffenen Person werden gelöscht oder gesperrt, sobald der Zweck der Speicherung entfällt. Eine Speicherung kann darüber hinaus erfolgen, wenn dies durch den europäischen oder nationalen Gesetzgeber vorgesehen wurde. Für die Versicherungsvermittlung gelten insbesondere die Aufbewahrungsfristen nach § 147 AO (10 Jahre) sowie die Dokumentationspflichten nach § 34d GewO i.V.m. VersVermV.</p>
+    </div>
+
+    <div class="ds-section">
+      <h2>3. Bereitstellung der Website und Server-Logfiles</h2>
+      <p>Bei jedem Aufruf unserer Internetseite erfasst unser System automatisiert Daten und Informationen vom Computersystem des aufrufenden Rechners. Folgende Daten werden hierbei erhoben:</p>
+      <ul>
+        <li>IP-Adresse des Nutzers</li>
+        <li>Datum und Uhrzeit des Zugriffs</li>
+        <li>Name und URL der abgerufenen Datei</li>
+        <li>Website, von der aus der Zugriff erfolgt (Referrer-URL)</li>
+        <li>Verwendeter Browser und ggf. das Betriebssystem</li>
+        <li>Name des Internet-Zugangsproviders</li>
+      </ul>
+      <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+      <p>Zweck: Sicherstellung der Funktionsfähigkeit, Optimierung der Website und Gewährleistung der Sicherheit unserer informationstechnischen Systeme. Eine Auswertung zu Marketingzwecken findet nicht statt.</p>
+      <p>Speicherdauer: Die Logfiles werden nach spätestens sieben Tagen gelöscht oder anonymisiert.</p>
+    </div>
+
+    <div class="ds-section">
+      <h2>4. Kontaktaufnahme per E-Mail, Telefon oder Kontaktformular</h2>
+      <p>Eine Kontaktaufnahme ist über die bereitgestellte E-Mail-Adresse (<a href="mailto:info@costa-mclaren.de">info@costa-mclaren.de</a>), die angegebene Telefonnummer sowie ggf. über ein Kontaktformular möglich. In diesem Fall werden die vom Nutzer übermittelten personenbezogenen Daten gespeichert und ausschließlich zur Bearbeitung der Anfrage verwendet. Eine Weitergabe an Dritte erfolgt nicht.</p>
+      <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) bzw. Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung/-erfüllung).</p>
+      <p>Speicherdauer: Die Daten werden gelöscht, sobald sie zur Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind. Gesetzliche Aufbewahrungsfristen bleiben unberührt.</p>
+    </div>
+
+    <div class="ds-section">
+      <h2>5. Datenverarbeitung im Rahmen der Versicherungsvermittlung</h2>
+      <p>Sofern im Rahmen der Anbahnung oder Durchführung eines Maklervertrages personenbezogene Daten (z. B. Name, Anschrift, Geburtsdatum, Gesundheitsdaten, Finanzdaten) erhoben werden, erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung und Vertragserfüllung) sowie bei besonderen Kategorien personenbezogener Daten, insbesondere Gesundheitsdaten, auf Grundlage von Art. 9 Abs. 2 lit. a DSGVO (ausdrückliche Einwilligung) bzw. § 22 BDSG.</p>
+      <p>Die Daten werden ausschließlich zum Zweck der Vermittlung und Betreuung von Versicherungsverträgen verwendet und nur insoweit an Versicherungsunternehmen, Pools, Assekuradeure oder IT-Dienstleister weitergegeben, als dies zur Erfüllung dieses Zwecks erforderlich ist. Mit Dienstleistern, die in unserem Auftrag Daten verarbeiten, bestehen Auftragsverarbeitungsverträge gemäß Art. 28 DSGVO.</p>
+    </div>
+
+    <div class="ds-section">
+      <h2>6. Verwendung von Cookies</h2>
+      <p>Unsere Website verwendet ggf. Cookies. Dabei handelt es sich um Textdateien, die im Internetbrowser auf dem Computersystem des Nutzers gespeichert werden. Der Cookie enthält eine charakteristische Zeichenfolge, die eine eindeutige Identifizierung des Browsers beim erneuten Aufrufen der Website ermöglicht.</p>
+      <p>Technisch notwendige Cookies: Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO i.V.m. § 25 Abs. 2 Nr. 2 TDDDG.</p>
+      <p>Nicht notwendige Cookies (z. B. Analyse, Marketing): Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO sowie § 25 Abs. 1 TDDDG (Einwilligung). Der Einsatz erfolgt nur nach vorheriger aktiver Einwilligung über den eingesetzten Cookie-Banner. Die Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden.</p>
+      <p>Der Nutzer kann die Verwendung von Cookies durch Änderung der Browser-Einstellungen deaktivieren oder einschränken. Bereits gespeicherte Cookies können jederzeit gelöscht werden.</p>
+    </div>
+
+    <div class="ds-section">
+      <h2>7. Hosting</h2>
+      <p>Unsere Website wird bei einem externen Dienstleister gehostet. Die auf dieser Website erfassten personenbezogenen Daten werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige über eine Website generierte Daten handeln.</p>
+      <p>Der Einsatz des Hosters erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots (Art. 6 Abs. 1 lit. f DSGVO).</p>
+      <p>Hosting-Anbieter: GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA – <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Datenschutzerklärung GitHub</a></p>
+      <p>Mit dem Hoster besteht ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO.</p>
+    </div>
+
+    <div class="ds-section">
+      <h2>8. SSL- bzw. TLS-Verschlüsselung</h2>
+      <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und am Schloss-Symbol in der Browserzeile.</p>
+    </div>
+
+    <div class="ds-section">
+      <h2>9. Rechte der betroffenen Person</h2>
+      <p>Werden personenbezogene Daten von Ihnen verarbeitet, sind Sie Betroffener im Sinne der DSGVO und haben folgende Rechte gegenüber dem Verantwortlichen:</p>
+      <ul>
+        <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+        <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+        <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+        <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+        <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+        <li>Widerspruchsrecht (Art. 21 DSGVO)</li>
+        <li>Recht auf Widerruf einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO) mit Wirkung für die Zukunft</li>
+        <li>Recht auf Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO)</li>
+      </ul>
+      <p>Zur Ausübung Ihrer Rechte genügt eine formlose Mitteilung per E-Mail an <a href="mailto:info@costa-mclaren.de">info@costa-mclaren.de</a> oder per Post an die im Impressum angegebene Anschrift.</p>
+      <p>Zuständige Aufsichtsbehörde: Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen, Kavalleriestraße 2–4, 40213 Düsseldorf, <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">www.ldi.nrw.de</a></p>
+    </div>
+
+    <div class="ds-section">
+      <h2>10. Widerspruch gegen Datenverarbeitung auf Grundlage berechtigter Interessen</h2>
+      <p>Soweit personenbezogene Daten auf Grundlage von berechtigten Interessen gemäß Art. 6 Abs. 1 lit. f DSGVO verarbeitet werden, haben Sie das Recht, gemäß Art. 21 DSGVO Widerspruch gegen die Verarbeitung einzulegen, soweit dafür Gründe vorliegen, die sich aus Ihrer besonderen Situation ergeben. Möchten Sie von Ihrem Widerspruchsrecht Gebrauch machen, genügt eine formlose Mitteilung per E-Mail an <a href="mailto:info@costa-mclaren.de">info@costa-mclaren.de</a>.</p>
+    </div>
+
+    <div class="ds-section">
+      <h2>11. Aktualität und Änderung dieser Datenschutzerklärung</h2>
+      <p>Diese Datenschutzerklärung hat den Stand: April 2026.</p>
+      <p>Durch die Weiterentwicklung unserer Website und Angebote oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle Datenschutzerklärung kann jederzeit auf <a href="https://www.costa-mclaren.de">www.costa-mclaren.de</a> abgerufen werden.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div><div class="footer-brand">Costa & McLaren<br>Versicherungsmakler GmbH</div><p class="footer-sub">Präzise. Diskret. Auf Augenhöhe.</p></div>
+      <div><div class="footer-col-title">Standort</div><ul class="footer-col-list"><li><a href="https://www.google.com/maps/dir/?api=1&destination=Poststraße+60,+41516+Grevenbroich" target="_blank" rel="noopener">Poststr. 60<br>41516 Grevenbroich</a></li></ul></div>
+      <div><div class="footer-col-title">Kontakt</div><ul class="footer-col-list"><li><a href="mailto:info@costa-mclaren.de">info@costa-mclaren.de</a></li><li><a href="tel:+49218168717">02181-68717</a></li></ul></div>
+      <div><div class="footer-col-title">Info</div><ul class="footer-col-list"><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Costa & McLaren Versicherungsmakler GmbH. Alle Rechte vorbehalten.</span>
+      <span class="footer-copy">Versicherungsmakler (§ 34d GewO)</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').style.background = window.scrollY > 50 ? 'rgba(242,241,239,0.99)' : 'rgba(242,241,239,0.96)'
+    })
+  </script>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cc-banner" id="cc-banner" hidden role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc">
+    <h2 id="cc-title">Cookie-Einstellungen</h2>
+    <p id="cc-desc">Diese Website verwendet Cookies und ähnliche Technologien. Einige sind technisch notwendig, andere helfen uns, die Website zu verbessern. Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a> und im <a href="impressum.html">Impressum</a>.</p>
+    <div class="cc-buttons">
+      <button type="button" class="cc-btn" data-cc-action="reject">Alle ablehnen</button>
+      <button type="button" class="cc-btn" data-cc-action="settings">Einstellungen</button>
+      <button type="button" class="cc-btn" data-cc-action="accept">Alle akzeptieren</button>
+    </div>
+  </div>
+
+  <div class="cc-modal-overlay" id="cc-modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="cc-modal-title">
+    <div class="cc-modal">
+      <h2 id="cc-modal-title">Datenschutz-Einstellungen</h2>
+      <p>Wir respektieren Ihre Privatsphäre. Sie entscheiden, welche Kategorien von Cookies Sie zulassen möchten. Notwendige Cookies können nicht deaktiviert werden.</p>
+      <div class="cc-category">
+        <div class="cc-category-head">
+          <h3 class="cc-category-title">Notwendig</h3>
+          <label class="cc-toggle"><input type="checkbox" data-cc-category="necessary" checked disabled><span class="cc-slider"></span></label>
+        </div>
+        <p class="cc-category-desc">Erforderlich für den sicheren Betrieb der Website. Speichert z. B. Ihre Cookie-Einstellungen. Rechtsgrundlage: § 25 Abs. 2 Nr. 2 TDDDG i.V.m. Art. 6 Abs. 1 lit. f DSGVO.</p>
+        <details class="cc-category-details">
+          <summary>Details anzeigen</summary>
+          <table><thead><tr><th>Name</th><th>Anbieter</th><th>Zweck</th><th>Speicherdauer</th></tr></thead>
+          <tbody><tr><td>cc_consent</td><td>costa-mclaren.de</td><td>Speichert die Cookie-Einwilligung</td><td>12 Monate</td></tr></tbody></table>
+        </details>
+      </div>
+      <div class="cc-category">
+        <div class="cc-category-head">
+          <h3 class="cc-category-title">Funktional</h3>
+          <label class="cc-toggle"><input type="checkbox" data-cc-category="functional"><span class="cc-slider"></span></label>
+        </div>
+        <p class="cc-category-desc">Ermöglichen erweiterte Funktionen wie das Einbinden von Karten Dritter. Rechtsgrundlage: § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO.</p>
+        <details class="cc-category-details">
+          <summary>Details anzeigen</summary>
+          <table><thead><tr><th>Dienst</th><th>Anbieter</th><th>Zweck</th><th>Datentransfer</th></tr></thead>
+          <tbody><tr><td>Google Maps</td><td>Google Ireland Ltd., Dublin</td><td>Einbettung des Standorts</td><td>USA (ggf. Drittland)</td></tr></tbody></table>
+        </details>
+      </div>
+      <div class="cc-category">
+        <div class="cc-category-head">
+          <h3 class="cc-category-title">Statistik</h3>
+          <label class="cc-toggle"><input type="checkbox" data-cc-category="statistics"><span class="cc-slider"></span></label>
+        </div>
+        <p class="cc-category-desc">Helfen uns zu verstehen, wie Besucher die Website nutzen. Daten werden anonymisiert ausgewertet. Rechtsgrundlage: § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO.</p>
+        <details class="cc-category-details">
+          <summary>Details anzeigen</summary>
+          <table><thead><tr><th>Dienst</th><th>Anbieter</th><th>Zweck</th><th>Speicherdauer</th></tr></thead>
+          <tbody><tr><td colspan="4" style="color:#999;font-style:italic;">Derzeit keine Statistik-Dienste aktiv.</td></tr></tbody></table>
+        </details>
+      </div>
+      <div class="cc-category">
+        <div class="cc-category-head">
+          <h3 class="cc-category-title">Marketing</h3>
+          <label class="cc-toggle"><input type="checkbox" data-cc-category="marketing"><span class="cc-slider"></span></label>
+        </div>
+        <p class="cc-category-desc">Werden verwendet, um Werbung zielgerichtet auszuspielen. Rechtsgrundlage: § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO.</p>
+        <details class="cc-category-details">
+          <summary>Details anzeigen</summary>
+          <table><thead><tr><th>Dienst</th><th>Anbieter</th><th>Zweck</th><th>Datentransfer</th></tr></thead>
+          <tbody><tr><td colspan="4" style="color:#999;font-style:italic;">Derzeit keine Marketing-Cookies aktiv.</td></tr></tbody></table>
+        </details>
+      </div>
+      <p style="font-size:12px;color:#6b6f74;font-family:'Lato',sans-serif;font-weight:300;margin-top:20px;">Sie können Ihre Einwilligung jederzeit über „Cookie-Einstellungen" unten links widerrufen.</p>
+      <div class="cc-modal-buttons">
+        <button type="button" class="cc-btn" data-cc-action="reject">Alle ablehnen</button>
+        <button type="button" class="cc-btn" data-cc-action="save">Auswahl speichern</button>
+        <button type="button" class="cc-btn" data-cc-action="accept">Alle akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="cc-revoke" id="cc-revoke" hidden>Cookie-Einstellungen</button>
+  <script src="cookie-consent.js"></script>
+
+  <!-- Login Modal -->
+  <div class="lm-backdrop" id="loginModal">
+    <div class="lm-box">
+      <button class="lm-close" id="loginModalClose" aria-label="Schließen">×</button>
+      <h2 class="lm-title">Kundenportal</h2>
+
+      <div class="lm-section">
+        <p class="lm-label">Bereits registriert? Jetzt einloggen</p>
+        <a href="https://meine-finanzen.digital/login" target="_blank" rel="noopener" class="lm-login-btn">Zum Login</a>
+      </div>
+
+      <hr class="lm-divider" />
+
+      <div class="lm-section">
+        <p class="lm-label">Noch kein Konto? Jetzt registrieren</p>
+        <div class="lm-reg-row">
+          <a href="https://meine-finanzen.digital/anmelden/f/41f3bdb7-f872-11f0-9995-960000d203a8" target="_blank" rel="noopener" class="lm-reg-btn">Firmenkunden</a>
+          <a href="https://meine-finanzen.digital/anmelden/m/4203efd0-f872-11f0-9995-960000d203a8" target="_blank" rel="noopener" class="lm-reg-btn">Privatkunden</a>
+        </div>
+      </div>
+
+      <hr class="lm-divider" />
+
+      <div class="lm-section">
+        <p class="lm-label">Finanzmanager-App</p>
+        <div class="lm-badge-row">
+          <a href="https://play.google.com/store/apps/details?id=de.demv.finanzmanager.app" target="_blank" rel="noopener">
+            <img src="https://mvp.professional.works/images/extlogin/playstore.svg" alt="Finanzmanager Playstore Badge" style="height:40px;width:135px;" />
+          </a>
+          <a href="https://apps.apple.com/app/id6648793330" target="_blank" rel="noopener">
+            <img src="https://mvp.professional.works/images/extlogin/appstore.svg" alt="Finanzmanager Appstore Badge" style="height:40px;width:120px;" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="login-modal.js"></script>
+</body>
+</html>

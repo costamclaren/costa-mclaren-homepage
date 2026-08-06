@@ -117,6 +117,25 @@
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* MODAL */
+    .modal-backdrop { position: fixed; inset: 0; z-index: 200; background: rgba(26,28,30,0.72); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .modal-backdrop.open { opacity: 1; pointer-events: all; }
+    .modal { background: var(--white); width: 100%; max-width: 620px; max-height: 90vh; overflow-y: auto; padding: 56px; position: relative; transform: translateY(20px); transition: transform 0.3s; }
+    .modal-backdrop.open .modal { transform: translateY(0); }
+    .modal-close { position: absolute; top: 20px; right: 24px; background: none; border: none; cursor: pointer; color: var(--muted); font-size: 28px; line-height: 1; padding: 4px; transition: color 0.2s; }
+    .modal-close:hover { color: var(--text); }
+    .modal-title { font-family: var(--serif); font-size: 28px; font-weight: 400; color: var(--text); margin-bottom: 8px; }
+    .modal-sub { font-family: var(--sans); font-size: 15px; color: var(--muted); font-weight: 300; margin-bottom: 36px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .form-label span { font-weight: 300; opacity: 0.55; }
+    .form-input, .form-textarea { font-family: var(--sans); font-size: 17px; font-weight: 300; color: var(--text); background: transparent; border: none; outline: none; width: 100%; resize: none; }
+    .form-textarea { min-height: 90px; }
+    .btn-send { margin-top: 36px; display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; background: var(--anthrazit); color: #fff; border: none; cursor: pointer; transition: background 0.2s; }
+    .btn-send:hover { background: #3a3f45; }
+
     /* RESPONSIVE */
     @media (max-width: 1024px) {
       .leistungen-grid { grid-template-columns: 1fr 1fr; }
@@ -131,6 +150,8 @@
       .leistungen-grid, .prozess-grid, .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="stylesheet" href="cookie-consent.css" />
+  <link rel="stylesheet" href="login-modal.css" />
 </head>
 <body>
 
@@ -155,7 +176,7 @@
       <h1 class="hero-title">Privatkunden</h1>
       <p class="hero-sub">Persönlicher Versicherungsschutz für anspruchsvolle Privatpersonen – diskret, individuell und auf höchstem Niveau.</p>
       <div class="hero-btns">
-        <a href="index.html#kontakt" class="btn-white">Beratung vereinbaren</a>
+        <a href="#" class="btn-white" onclick="openModal(); return false;">Beratung vereinbaren</a>
       </div>
     </div>
   </section>
@@ -239,7 +260,7 @@
       <div>
         <h2 class="cta-title reveal">Lassen Sie uns über Ihren persönlichen Versicherungsschutz sprechen.</h2>
         <p class="cta-text reveal">Vereinbaren Sie ein unverbindliches Erstgespräch. Wir nehmen uns die Zeit, Ihre Situation zu verstehen — und entwickeln eine Lösung, die wirklich zu Ihrem Leben passt.</p>
-        <a href="index.html#kontakt" class="btn-dark reveal">Beratung vereinbaren</a>
+        <a href="#" class="btn-dark reveal" onclick="openModal(); return false;">Beratung vereinbaren</a>
       </div>
     </div>
   </section>
@@ -249,7 +270,7 @@
       <div><div class="footer-brand">Costa & McLaren<br>Versicherungsmakler GmbH</div><p class="footer-sub">Präzise. Diskret. Auf Augenhöhe.</p></div>
       <div><div class="footer-col-title">Standort</div><ul class="footer-col-list"><li>Poststr. 60</li><li>41516 Grevenbroich</li></ul></div>
       <div><div class="footer-col-title">Kontakt</div><ul class="footer-col-list"><li><a href="mailto:info@costa-mclaren.de">info@costa-mclaren.de</a></li><li>02181-68717</li></ul></div>
-      <div><div class="footer-col-title">Info</div><ul class="footer-col-list"><li><a href="index.html#about">Über uns</a></li><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li></ul></div>
+      <div><div class="footer-col-title">Info</div><ul class="footer-col-list"><li><a href="index.html#about">Über uns</a></li><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <span class="footer-copy">© 2025 Costa & McLaren Versicherungsmakler GmbH. Alle Rechte vorbehalten.</span>
@@ -265,6 +286,175 @@
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').style.background = window.scrollY > 50 ? 'rgba(242,241,239,0.99)' : 'rgba(242,241,239,0.96)'
     })
+
+    function openModal() { document.getElementById('contactModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { document.getElementById('contactModal').classList.remove('open'); document.body.style.overflow = ''; }
+    function closeModalOnBackdrop(e) { if (e.target === document.getElementById('contactModal')) closeModal(); }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); })
+
+    const SUCCESS_HTML = `<div style="padding:32px 0; text-align:center;">
+  <p style="font-family:var(--serif); font-size:26px; color:var(--text); margin-bottom:12px;">Vielen Dank!</p>
+  <p style="font-family:var(--sans); font-size:16px; color:var(--muted); font-weight:300; line-height:1.7;">Ihre Nachricht wurde erfolgreich gesendet.<br>Wir melden uns zeitnah bei Ihnen.</p>
+</div>`;
+
+    document.getElementById('modalContactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('[type=submit]');
+      btn.textContent = 'Wird gesendet…';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/info@costa-mclaren.de', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(this)
+        });
+        const data = await res.json();
+        if (data.success === 'true' || data.success === true) {
+          this.innerHTML = SUCCESS_HTML;
+        } else { throw new Error(data.message || 'unknown'); }
+      } catch(err) {
+        btn.textContent = 'Senden';
+        btn.disabled = false;
+        const msg = err.message && err.message.includes('Activation')
+          ? 'Das Formular muss einmalig aktiviert werden. Bitte prüfen Sie das Postfach info@costa-mclaren.de und klicken Sie den Aktivierungs-Link von Formsubmit.co.'
+          : 'Etwas ist schiefgelaufen. Bitte schreiben Sie uns direkt an info@costa-mclaren.de';
+        alert(msg);
+      }
+    });
   </script>
+
+  <!-- Kontaktformular Modal -->
+  <div class="modal-backdrop" id="contactModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Schließen">×</button>
+      <h2 class="modal-title">Beratung vereinbaren</h2>
+      <p class="modal-sub">Füllen Sie das Formular aus – wir melden uns zeitnah bei Ihnen.</p>
+      <form id="modalContactForm">
+        <input type="hidden" name="_subject" value="Neue Kontaktanfrage – Costa & McLaren Versicherungsmakler GmbH" />
+        <input type="hidden" name="_captcha" value="false" />
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Vorname <span>(erforderlich)</span></label><input type="text" name="Vorname" class="form-input" placeholder="Max" required /></div>
+          <div class="form-group"><label class="form-label">Nachname <span>(erforderlich)</span></label><input type="text" name="Nachname" class="form-input" placeholder="Mustermann" required /></div>
+        </div>
+        <div class="form-group full"><label class="form-label">E-Mail-Adresse <span>(erforderlich)</span></label><input type="email" name="E-Mail" class="form-input" placeholder="max@beispiel.de" required /></div>
+        <div class="form-group full"><label class="form-label">Telefonnummer <span>(erforderlich)</span></label><input type="tel" name="Telefon" class="form-input" placeholder="+49 211 123456" required /></div>
+        <div class="form-group full"><label class="form-label">Nachricht <span>(erforderlich)</span></label><textarea name="Nachricht" class="form-textarea" placeholder="Ihre Nachricht..." required></textarea></div>
+        <button type="submit" class="btn-send">Senden</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cc-banner" id="cc-banner" hidden role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc">
+    <h2 id="cc-title">Cookie-Einstellungen</h2>
+    <p id="cc-desc">Diese Website verwendet Cookies und ähnliche Technologien. Einige sind technisch notwendig, andere helfen uns, die Website zu verbessern. Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a> und im <a href="impressum.html">Impressum</a>.</p>
+    <div class="cc-buttons">
+      <button type="button" class="cc-btn" data-cc-action="reject">Alle ablehnen</button>
+      <button type="button" class="cc-btn" data-cc-action="settings">Einstellungen</button>
+      <button type="button" class="cc-btn" data-cc-action="accept">Alle akzeptieren</button>
+    </div>
+  </div>
+
+  <div class="cc-modal-overlay" id="cc-modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="cc-modal-title">
+    <div class="cc-modal">
+      <h2 id="cc-modal-title">Datenschutz-Einstellungen</h2>
+      <p>Wir respektieren Ihre Privatsphäre. Sie entscheiden, welche Kategorien von Cookies Sie zulassen möchten. Notwendige Cookies können nicht deaktiviert werden.</p>
+      <div class="cc-category">
+        <div class="cc-category-head">
+          <h3 class="cc-category-title">Notwendig</h3>
+          <label class="cc-toggle"><input type="checkbox" data-cc-category="necessary" checked disabled><span class="cc-slider"></span></label>
+        </div>
+        <p class="cc-category-desc">Erforderlich für den sicheren Betrieb der Website. Speichert z. B. Ihre Cookie-Einstellungen. Rechtsgrundlage: § 25 Abs. 2 Nr. 2 TDDDG i.V.m. Art. 6 Abs. 1 lit. f DSGVO.</p>
+        <details class="cc-category-details">
+          <summary>Details anzeigen</summary>
+          <table><thead><tr><th>Name</th><th>Anbieter</th><th>Zweck</th><th>Speicherdauer</th></tr></thead>
+          <tbody><tr><td>cc_consent</td><td>costa-mclaren.de</td><td>Speichert die Cookie-Einwilligung</td><td>12 Monate</td></tr></tbody></table>
+        </details>
+      </div>
+      <div class="cc-category">
+        <div class="cc-category-head">
+          <h3 class="cc-category-title">Funktional</h3>
+          <label class="cc-toggle"><input type="checkbox" data-cc-category="functional"><span class="cc-slider"></span></label>
+        </div>
+        <p class="cc-category-desc">Ermöglichen erweiterte Funktionen wie das Einbinden von Karten Dritter. Rechtsgrundlage: § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO.</p>
+        <details class="cc-category-details">
+          <summary>Details anzeigen</summary>
+          <table><thead><tr><th>Dienst</th><th>Anbieter</th><th>Zweck</th><th>Datentransfer</th></tr></thead>
+          <tbody><tr><td>Google Maps</td><td>Google Ireland Ltd., Dublin</td><td>Einbettung des Standorts</td><td>USA (ggf. Drittland)</td></tr></tbody></table>
+        </details>
+      </div>
+      <div class="cc-category">
+        <div class="cc-category-head">
+          <h3 class="cc-category-title">Statistik</h3>
+          <label class="cc-toggle"><input type="checkbox" data-cc-category="statistics"><span class="cc-slider"></span></label>
+        </div>
+        <p class="cc-category-desc">Helfen uns zu verstehen, wie Besucher die Website nutzen. Daten werden anonymisiert ausgewertet. Rechtsgrundlage: § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO.</p>
+        <details class="cc-category-details">
+          <summary>Details anzeigen</summary>
+          <table><thead><tr><th>Dienst</th><th>Anbieter</th><th>Zweck</th><th>Speicherdauer</th></tr></thead>
+          <tbody><tr><td colspan="4" style="color:#999;font-style:italic;">Derzeit keine Statistik-Dienste aktiv.</td></tr></tbody></table>
+        </details>
+      </div>
+      <div class="cc-category">
+        <div class="cc-category-head">
+          <h3 class="cc-category-title">Marketing</h3>
+          <label class="cc-toggle"><input type="checkbox" data-cc-category="marketing"><span class="cc-slider"></span></label>
+        </div>
+        <p class="cc-category-desc">Werden verwendet, um Werbung zielgerichtet auszuspielen. Rechtsgrundlage: § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO.</p>
+        <details class="cc-category-details">
+          <summary>Details anzeigen</summary>
+          <table><thead><tr><th>Dienst</th><th>Anbieter</th><th>Zweck</th><th>Datentransfer</th></tr></thead>
+          <tbody><tr><td colspan="4" style="color:#999;font-style:italic;">Derzeit keine Marketing-Cookies aktiv.</td></tr></tbody></table>
+        </details>
+      </div>
+      <p style="font-size:12px;color:#6b6f74;font-family:'Lato',sans-serif;font-weight:300;margin-top:20px;">Sie können Ihre Einwilligung jederzeit über „Cookie-Einstellungen" unten links widerrufen.</p>
+      <div class="cc-modal-buttons">
+        <button type="button" class="cc-btn" data-cc-action="reject">Alle ablehnen</button>
+        <button type="button" class="cc-btn" data-cc-action="save">Auswahl speichern</button>
+        <button type="button" class="cc-btn" data-cc-action="accept">Alle akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="cc-revoke" id="cc-revoke" hidden>Cookie-Einstellungen</button>
+  <script src="cookie-consent.js"></script>
+
+  <!-- Login Modal -->
+  <div class="lm-backdrop" id="loginModal">
+    <div class="lm-box">
+      <button class="lm-close" id="loginModalClose" aria-label="Schließen">×</button>
+      <h2 class="lm-title">Kundenportal</h2>
+
+      <div class="lm-section">
+        <p class="lm-label">Bereits registriert? Jetzt einloggen</p>
+        <a href="https://meine-finanzen.digital/login" target="_blank" rel="noopener" class="lm-login-btn">Zum Login</a>
+      </div>
+
+      <hr class="lm-divider" />
+
+      <div class="lm-section">
+        <p class="lm-label">Noch kein Konto? Jetzt registrieren</p>
+        <div class="lm-reg-row">
+          <a href="https://meine-finanzen.digital/anmelden/f/41f3bdb7-f872-11f0-9995-960000d203a8" target="_blank" rel="noopener" class="lm-reg-btn">Firmenkunden</a>
+          <a href="https://meine-finanzen.digital/anmelden/m/4203efd0-f872-11f0-9995-960000d203a8" target="_blank" rel="noopener" class="lm-reg-btn">Privatkunden</a>
+        </div>
+      </div>
+
+      <hr class="lm-divider" />
+
+      <div class="lm-section">
+        <p class="lm-label">Finanzmanager-App</p>
+        <div class="lm-badge-row">
+          <a href="https://play.google.com/store/apps/details?id=de.demv.finanzmanager.app" target="_blank" rel="noopener">
+            <img src="https://mvp.professional.works/images/extlogin/playstore.svg" alt="Finanzmanager Playstore Badge" style="height:40px;width:135px;" />
+          </a>
+          <a href="https://apps.apple.com/app/id6648793330" target="_blank" rel="noopener">
+            <img src="https://mvp.professional.works/images/extlogin/appstore.svg" alt="Finanzmanager Appstore Badge" style="height:40px;width:120px;" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="login-modal.js"></script>
 </body>
 </html>
