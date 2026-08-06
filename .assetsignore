@@ -1,0 +1,14 @@
+# Coming-soon phase: hide full-site pages (remove at full launch)
+gewerbe.html
+privatkunden.html
+startseite.html
+preview.html
+og-image.html
+
+# Repo/config files, not for public serving
+wrangler.jsonc
+.gitignore
+.gitattributes
+.DS_Store
+README.md
+NOTIZEN.md
