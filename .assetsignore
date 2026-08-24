@@ -12,3 +12,10 @@ wrangler.jsonc
 .DS_Store
 README.md
 NOTIZEN.md
+
+# Version control / build internals - never serve publicly
+.git
+.git/**
+.wrangler
+.wrangler/**
+.assetsignore
