@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="cookie-consent.css">
 <script>try{if(!sessionStorage.getItem("cm-einstieg-gesehen")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("intro-enabled")}sessionStorage.setItem("cm-einstieg-gesehen","1")}catch(error){}</script>
 <title>Costa & McLaren – Gewerbe- und Privatkunden</title>
-<link rel="stylesheet" href="assets/css/site.css?v=54961147723a">
+<link rel="stylesheet" href="assets/css/site.css?v=8e1f8eb48ce1">
 <style>
 /* Der Einstieg verwendet Logo, Schrift, Farben und Buttons aus site.css. */
 body{background:var(--navy-deep)}
@@ -139,7 +139,7 @@ body:has(.cc-revoke:not([hidden])) .bottom{padding-bottom:76px}
 @media(max-width:800px){.scene,.private .scene{height:100%}.business .scene{object-position:25% 0}.private .scene{object-position:75% 0}}
 @media(min-width:801px) and (hover:hover) and (pointer:fine){.choices:has(.choice:hover) .scene{transform:scale(1.04)}}
 @media(prefers-reduced-motion:reduce){.choices:has(.choice:hover) .scene{transform:none!important}}
-@media(max-width:800px){.intro h1 br.nur-breit{display:none}}
+@media(max-width:800px){.intro h1 br.nur-breit,.description br.nur-breit{display:none}}
 /* Desktop: Foto in voller Höhe statt voller Breite, damit Turm, Skyline und Wasser über dem Text stehen. Links läuft es in Navy aus. */
 @media(min-width:801px){
  .scene,.business .scene,.private .scene{left:auto;right:0;top:0;width:auto;height:104%;aspect-ratio:3/2;max-width:none;object-fit:cover;object-position:50% 0;
@@ -155,31 +155,31 @@ body:has(.cc-revoke:not([hidden])) .bottom{padding-bottom:76px}
 <main class="shell" id="selection">
  <header class="header header--dunkel">
   <div class="header__inner">
-    <a class="wortmarke" href="index.html" aria-label="Costa und McLaren Versicherungsmakler GmbH, zur Startseite">
+    <a class="wortmarke" href="/" aria-label="Costa und McLaren Versicherungsmakler GmbH, zur Startseite">
       <span class="wortmarke__name">Costa &amp; McLaren</span>
       <span class="wortmarke__zusatz">Versicherungsmakler GmbH</span>
     </a>
-    <nav class="einstieg-kontakt" aria-label="Kontakt und Maklerhaus"><a class="nav__link" href="ueber-uns.html">Über uns</a><a class="nav__link" href="kontakt.html">Kontakt</a></nav>
+    <nav class="einstieg-kontakt" aria-label="Kontakt und Maklerhaus"><a class="nav__link" href="/ueber-uns">Über uns</a><a class="nav__link" href="/kontakt">Kontakt</a></nav>
   </div>
 </header>
  <section class="intro" aria-labelledby="title"><h1 id="title">Versicherungs&shy;lösungen<br class="nur-breit"> für Ihr Unternehmen<br> und Ihr Privatleben</h1><p>Willkommen bei Costa & McLaren.<br>Welcher Bereich führt Sie zu uns?</p></section>
  <section class="choices" id="kundenbereiche" aria-label="Kundenbereich wählen">
-  <a href="gewerbe.html" class="choice business" data-destination="business">
+  <a href="/gewerbe" class="choice business" data-destination="business">
    <img class="scene" src="assets/images/düsseldorf-medienhafen-blaue-stunde-2400.jpg" srcset="assets/images/düsseldorf-medienhafen-blaue-stunde-1200.jpg 1200w, assets/images/düsseldorf-medienhafen-blaue-stunde-2400.jpg 2400w" sizes="(max-width:800px) 100vw, 900px" width="2400" height="1600" alt="" fetchpriority="high">
-   <div class="content"><p class="overline">Betriebliche Absicherung</p><h2>Gewerbekunden</h2><p class="description">Betriebliche Risiken, Sachwerte und Mitarbeiter – abgestimmt auf Ihr Unternehmen.</p><span class="btn einstieg__cta">Zum Gewerbekundenbereich <span class="arrow" aria-hidden="true">→</span></span></div>
+   <div class="content"><p class="overline">Betriebliche Absicherung</p><h2>Gewerbekunden</h2><p class="description">Betriebliche Risiken, Sachwerte und Mitarbeiter –<br class="nur-breit"> abgestimmt auf Ihr Unternehmen.</p><span class="btn einstieg__cta">Zum Gewerbekundenbereich <span class="arrow" aria-hidden="true">→</span></span></div>
   </a>
-  <a href="privatkunden.html" class="choice private" data-destination="private">
+  <a href="/privatkunden" class="choice private" data-destination="private">
    <img class="scene" src="assets/images/düsseldorf-medienhafen-blaue-stunde-2400.jpg" srcset="assets/images/düsseldorf-medienhafen-blaue-stunde-1200.jpg 1200w, assets/images/düsseldorf-medienhafen-blaue-stunde-2400.jpg 2400w" sizes="(max-width:800px) 100vw, 900px" width="2400" height="1600" alt="">
-   <div class="content"><p class="overline">Persönliche Absicherung</p><h2>Privatkunden</h2><p class="description">Krankenversicherung, Vermögensschutz und Vorsorge – abgestimmt auf Ihre persönliche Situation.</p><span class="btn einstieg__cta">Zum Privatkundenbereich <span class="arrow" aria-hidden="true">→</span></span></div>
+   <div class="content"><p class="overline">Persönliche Absicherung</p><h2>Privatkunden</h2><p class="description">Krankenversicherung, Vermögensschutz und Vorsorge –<br class="nur-breit"> abgestimmt auf Ihre persönliche Situation.</p><span class="btn einstieg__cta">Zum Privatkundenbereich <span class="arrow" aria-hidden="true">→</span></span></div>
   </a><div class="midline" aria-hidden="true"></div>
  </section>
- <footer class="bottom"><span>Präzise <span class="dot" aria-hidden="true"></span> Diskret <span class="dot" aria-hidden="true"></span> Auf Augenhöhe</span><div class="legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="erstinformation.html">Erstinformation</a></div></footer>
+ <footer class="bottom"><span>Präzise <span class="dot" aria-hidden="true"></span> Diskret <span class="dot" aria-hidden="true"></span> Auf Augenhöhe</span><div class="legal"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a><a href="/erstinformation">Erstinformation</a></div></footer>
 </main>
 <div class="veil" id="veil" aria-hidden="true"></div>
 <!-- Cookie Consent Banner -->
   <div class="cc-banner" id="cc-banner" hidden role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc">
     <h2 id="cc-title">Cookie-Einstellungen</h2>
-    <p id="cc-desc">Diese Website verwendet Cookies und ähnliche Technologien. Einige sind technisch notwendig, andere helfen uns, die Website zu verbessern. Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a> und im <a href="impressum.html">Impressum</a>.</p>
+    <p id="cc-desc">Diese Website verwendet Cookies und ähnliche Technologien. Einige&nbsp;sind technisch notwendig, andere helfen uns, die Website zu verbessern. Weitere&nbsp;Informationen finden Sie in unserer <a href="/datenschutz">Datenschutzerklärung</a> und im <a href="/impressum">Impressum</a>.</p>
     <div class="cc-buttons">
       <button type="button" class="cc-btn" data-cc-action="reject">Alle ablehnen</button>
       <button type="button" class="cc-btn" data-cc-action="settings">Einstellungen</button>
@@ -190,13 +190,13 @@ body:has(.cc-revoke:not([hidden])) .bottom{padding-bottom:76px}
   <div class="cc-modal-overlay" id="cc-modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="cc-modal-title">
     <div class="cc-modal">
       <h2 id="cc-modal-title">Datenschutz-Einstellungen</h2>
-      <p>Wir respektieren Ihre Privatsphäre. Sie entscheiden, welche Kategorien von Cookies Sie zulassen möchten. Notwendige Cookies können nicht deaktiviert werden.</p>
+      <p>Wir respektieren Ihre Privatsphäre. Sie&nbsp;entscheiden, welche Kategorien von Cookies Sie zulassen möchten. Notwendige&nbsp;Cookies können nicht deaktiviert werden.</p>
       <div class="cc-category">
         <div class="cc-category-head">
           <h3 class="cc-category-title">Notwendig</h3>
           <label class="cc-toggle"><input type="checkbox" data-cc-category="necessary" checked disabled><span class="cc-slider"></span></label>
         </div>
-        <p class="cc-category-desc">Erforderlich für den sicheren Betrieb der Website. Speichert z. B. Ihre Cookie-Einstellungen. Rechtsgrundlage: § 25 Abs. 2 Nr. 2 TDDDG i.V.m. Art. 6 Abs. 1 lit. f DSGVO.</p>
+        <p class="cc-category-desc">Erforderlich für den sicheren Betrieb der Website. Speichert&nbsp;z. B.&nbsp;Ihre Cookie-Einstellungen. Rechtsgrundlage:&nbsp;§&nbsp;25 Abs.&nbsp;2 Nr.&nbsp;2 TDDDG i.V.m. Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO.</p>
         <details class="cc-category-details">
           <summary>Details anzeigen</summary>
           <table><thead><tr><th>Name</th><th>Anbieter</th><th>Zweck</th><th>Speicherdauer</th></tr></thead>
@@ -208,7 +208,7 @@ body:has(.cc-revoke:not([hidden])) .bottom{padding-bottom:76px}
           <h3 class="cc-category-title">Funktional</h3>
           <label class="cc-toggle"><input type="checkbox" data-cc-category="functional"><span class="cc-slider"></span></label>
         </div>
-        <p class="cc-category-desc">Ermöglichen erweiterte Funktionen wie das Einbinden von Karten Dritter. Rechtsgrundlage: § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO.</p>
+        <p class="cc-category-desc">Ermöglichen erweiterte Funktionen wie das Einbinden von Karten Dritter. Rechtsgrundlage:&nbsp;§&nbsp;25 Abs.&nbsp;1 TDDDG, Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO.</p>
         <details class="cc-category-details">
           <summary>Details anzeigen</summary>
           <table><thead><tr><th>Dienst</th><th>Anbieter</th><th>Zweck</th><th>Datentransfer</th></tr></thead>
@@ -220,7 +220,7 @@ body:has(.cc-revoke:not([hidden])) .bottom{padding-bottom:76px}
           <h3 class="cc-category-title">Statistik</h3>
           <label class="cc-toggle"><input type="checkbox" data-cc-category="statistics"><span class="cc-slider"></span></label>
         </div>
-        <p class="cc-category-desc">Helfen uns zu verstehen, wie Besucher die Website nutzen. Daten werden anonymisiert ausgewertet. Rechtsgrundlage: § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO.</p>
+        <p class="cc-category-desc">Helfen uns zu verstehen, wie Besucher die Website nutzen. Daten&nbsp;werden anonymisiert ausgewertet. Rechtsgrundlage:&nbsp;§&nbsp;25 Abs.&nbsp;1 TDDDG, Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO.</p>
         <details class="cc-category-details">
           <summary>Details anzeigen</summary>
           <table><thead><tr><th>Dienst</th><th>Anbieter</th><th>Zweck</th><th>Speicherdauer</th></tr></thead>
@@ -232,7 +232,7 @@ body:has(.cc-revoke:not([hidden])) .bottom{padding-bottom:76px}
           <h3 class="cc-category-title">Marketing</h3>
           <label class="cc-toggle"><input type="checkbox" data-cc-category="marketing"><span class="cc-slider"></span></label>
         </div>
-        <p class="cc-category-desc">Werden verwendet, um Werbung zielgerichtet auszuspielen. Rechtsgrundlage: § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO.</p>
+        <p class="cc-category-desc">Werden verwendet, um Werbung zielgerichtet auszuspielen. Rechtsgrundlage:&nbsp;§&nbsp;25 Abs.&nbsp;1 TDDDG, Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO.</p>
         <details class="cc-category-details">
           <summary>Details anzeigen</summary>
           <table><thead><tr><th>Dienst</th><th>Anbieter</th><th>Zweck</th><th>Datentransfer</th></tr></thead>

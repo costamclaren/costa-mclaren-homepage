@@ -27,11 +27,12 @@
     }
   }
   if (bereich === 'gewerbe' || bereich === 'privat') {
-    var gemeinsameSeiten = ['kontakt.html', 'ueber-uns.html', 'impressum.html', 'datenschutz.html', 'erstinformation.html'];
+    var gemeinsameSeiten = ['kontakt', 'ueber-uns', 'impressum', 'datenschutz', 'erstinformation'];
     document.querySelectorAll('a[href]').forEach(function (link) {
       var ziel = link.getAttribute('href');
       var datei = ziel.split(/[?#]/)[0];
-      if (gemeinsameSeiten.indexOf(datei) === -1) return;
+      var name = datei.replace(/^\//, '').replace(/\.html$/, '');
+      if (gemeinsameSeiten.indexOf(name) === -1) return;
       var url = new URL(ziel, window.location.href);
       url.searchParams.set('bereich', bereich);
       link.setAttribute('href', datei + url.search + url.hash);
