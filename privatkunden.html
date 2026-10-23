@@ -1,353 +1,171 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang="de" class="js">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privatkunden – Costa & McLaren Versicherungsmakler GmbH</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privatkunden | Costa &amp; McLaren Versicherungsmakler</title>
+<meta name="description" content="Persönliche Versicherungsberatung für Ihre Lebenssituation: Gesundheit, Einkommen, Eigentum und Vorsorge. Feste Ansprechpartner und langfristige Betreuung.">
+<meta name="theme-color" content="#081F3A">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://costa-mclaren.de/privatkunden.html">
 
-  <style>
-    :root {
-      --anthrazit: #2d3035;
-      --bg: #f2f1ef;
-      --white: #ffffff;
-      --text: #1a1c1e;
-      --muted: #6b6f74;
-      --gold: #b89a6a;
-      --border: rgba(45,48,53,0.12);
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'Lato', sans-serif;
-    }
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Costa &amp; McLaren Versicherungsmakler GmbH">
+<meta property="og:title" content="Privatkunden | Costa &amp; McLaren Versicherungsmakler">
+<meta property="og:description" content="Persönliche Versicherungsberatung für Ihre Lebenssituation: Gesundheit, Einkommen, Eigentum und Vorsorge. Feste Ansprechpartner und langfristige Betreuung.">
+<meta property="og:url" content="https://costa-mclaren.de/privatkunden.html">
+<meta property="og:image" content="https://costa-mclaren.de/assets/images/vorschau-social-media.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Costa &amp; McLaren Versicherungsmakler GmbH: Düsseldorfer Medienhafen zur blauen Stunde">
+<meta name="twitter:card" content="summary_large_image">
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
-    a { text-decoration: none; color: inherit; }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 90px; background: rgba(242,241,239,0.96);
-      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; padding: 0 56px;
-      transition: background 0.3s;
-    }
-    .nav-logo { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); letter-spacing: 0.01em; white-space: nowrap; margin-right: auto; }
-    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .nav-links a { font-family: var(--sans); font-size: 15px; font-weight: 400; color: var(--text); letter-spacing: 0.04em; white-space: nowrap; position: relative; padding-bottom: 2px; }
-    .nav-links a.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 1px; background: var(--text); }
-    .nav-login { margin-left: 32px; font-family: var(--sans); font-size: 13px; font-weight: 400; letter-spacing: 0.06em; padding: 8px 22px; border: 1px solid var(--text); color: var(--text); background: transparent; cursor: pointer; white-space: nowrap; transition: background 0.2s, color 0.2s; }
-    .nav-login:hover { background: var(--text); color: var(--white); }
-
-    /* HERO */
-    .hero { position: relative; height: 65vh; min-height: 460px; display: flex; align-items: flex-end; padding-bottom: 88px; overflow: hidden; background: var(--anthrazit); }
-    .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80'); background-size: cover; background-position: center; opacity: 0.45; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(45,48,53,0.1) 0%, rgba(45,48,53,0.45) 50%, rgba(45,48,53,0.88) 100%); }
-    .hero-content { position: relative; z-index: 2; max-width: 1280px; width: 100%; margin: 0 auto; padding: 0 56px; }
-    .hero-label { font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; opacity: 0; animation: fadeUp 1s 0.2s forwards; }
-    .hero-title { font-family: var(--serif); font-size: clamp(32px, 4.5vw, 62px); font-weight: 400; color: #fff; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 18px; opacity: 0; transform: translateY(30px); animation: fadeUp 1s 0.35s forwards; }
-    .hero-sub { font-family: var(--serif); font-size: clamp(16px, 2vw, 24px); font-style: italic; color: rgba(255,255,255,0.75); line-height: 1.5; margin-bottom: 36px; opacity: 0; transform: translateY(30px); animation: fadeUp 1s 0.5s forwards; }
-    .hero-btns { opacity: 0; transform: translateY(30px); animation: fadeUp 1s 0.65s forwards; }
-    .btn-white { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; background: #fff; color: var(--anthrazit); display: inline-block; transition: background 0.2s; }
-    .btn-white:hover { background: #e8e6e3; }
-
-    /* SECTIONS */
-    .inner { max-width: 1280px; margin: 0 auto; }
-    .section-label { font-family: var(--sans); font-size: 18px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
-    .section-title { font-family: var(--serif); font-size: clamp(26px, 2.8vw, 42px); font-weight: 400; color: var(--text); line-height: 1.2; margin-bottom: 28px; }
-    .section-text { font-family: var(--sans); font-size: 17px; line-height: 1.9; color: var(--muted); font-weight: 300; max-width: 760px; }
-
-    /* EINLEITUNG */
-    .section-intro { background: var(--bg); padding: 112px 56px; }
-    .section-intro .section-title { max-width: 640px; }
-    .section-intro .section-text { margin-bottom: 20px; }
-
-    /* LEISTUNGEN */
-    .section-leistungen { background: var(--white); padding: 112px 56px; }
-    .section-leistungen .section-title { margin-bottom: 56px; }
-    .leistungen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .leistung-card { background: var(--bg); padding: 40px 32px; border: 1px solid rgba(45,48,53,0.07); transition: background 0.35s, border-color 0.35s; cursor: default; }
-    .leistung-card:hover { background: var(--anthrazit); border-color: var(--anthrazit); }
-    .leistung-card:hover .l-num, .leistung-card:hover .l-name, .leistung-card:hover .l-desc { color: rgba(255,255,255,0.85); }
-    .leistung-card:hover .l-line { background: rgba(255,255,255,0.15); }
-    .l-num { font-family: var(--serif); font-size: 12px; color: var(--muted); margin-bottom: 22px; transition: color 0.35s; }
-    .l-name { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); line-height: 1.3; margin-bottom: 14px; transition: color 0.35s; }
-    .l-line { width: 28px; height: 1px; background: var(--border); margin-bottom: 14px; transition: background 0.35s; }
-    .l-desc { font-family: var(--sans); font-size: 16px; line-height: 1.75; color: var(--muted); font-weight: 300; transition: color 0.35s; }
-
-    /* VORGEHENSWEISE */
-    .section-prozess { background: var(--anthrazit); padding: 112px 56px; }
-    .section-prozess .section-label { color: var(--gold); }
-    .section-prozess .section-title { color: #fff; margin-bottom: 72px; }
-    .prozess-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
-    .prozess-step { padding: 40px 28px; border: 1px solid rgba(255,255,255,0.1); transition: background 0.3s, border-color 0.3s; }
-    .prozess-step:hover { background: rgba(255,255,255,0.06); border-color: var(--gold); }
-    .prozess-step:hover .p-num { color: #fff; }
-    .prozess-step:hover .p-name { color: #fff; }
-    .prozess-step:hover .p-desc { color: rgba(255,255,255,0.8); }
-    .p-num { font-family: var(--serif); font-size: 36px; font-weight: 400; color: var(--gold); margin-bottom: 24px; line-height: 1; transition: color 0.3s; }
-    .p-name { font-family: var(--serif); font-size: 18px; font-weight: 400; color: #fff; margin-bottom: 14px; line-height: 1.3; transition: color 0.3s; }
-    .p-line { width: 28px; height: 1px; background: rgba(255,255,255,0.2); margin-bottom: 14px; }
-    .p-desc { font-family: var(--sans); font-size: 13px; line-height: 1.75; color: rgba(255,255,255,0.55); font-weight: 300; transition: color 0.3s; }
-
-    /* CTA */
-    .section-cta { background: var(--bg); padding: 112px 56px; }
-    .cta-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
-    .cta-title { font-family: var(--serif); font-size: clamp(28px, 3vw, 44px); font-weight: 400; color: var(--text); line-height: 1.2; margin-bottom: 24px; }
-    .cta-text { font-family: var(--sans); font-size: 17px; line-height: 1.85; color: var(--muted); font-weight: 300; margin-bottom: 40px; }
-    .btn-dark { display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; background: var(--anthrazit); color: #fff; border: none; cursor: pointer; transition: background 0.2s; }
-    .btn-dark:hover { background: #3a3f45; }
-
-    /* FOOTER */
-    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 80px 56px 48px; }
-    .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; margin-bottom: 64px; }
-    .footer-brand { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); line-height: 1.25; margin-bottom: 14px; }
-    .footer-sub { font-family: var(--sans); font-size: 15px; color: var(--muted); font-weight: 300; line-height: 1.6; }
-    .footer-col-title { font-family: var(--serif); font-size: 21px; font-weight: 400; color: var(--text); margin-bottom: 20px; }
-    .footer-col-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col-list li, .footer-col-list a { font-family: var(--sans); font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.6; }
-    .footer-col-list a:hover { color: var(--text); text-decoration: underline; }
-    .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(45,48,53,0.07); display: flex; justify-content: space-between; align-items: center; }
-    .footer-copy { font-family: var(--sans); font-size: 12px; color: var(--muted); font-weight: 300; }
-
-    /* ANIMATIONEN */
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* MODAL */
-    .modal-backdrop { position: fixed; inset: 0; z-index: 200; background: rgba(26,28,30,0.72); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
-    .modal-backdrop.open { opacity: 1; pointer-events: all; }
-    .modal { background: var(--white); width: 100%; max-width: 620px; max-height: 90vh; overflow-y: auto; padding: 56px; position: relative; transform: translateY(20px); transition: transform 0.3s; }
-    .modal-backdrop.open .modal { transform: translateY(0); }
-    .modal-close { position: absolute; top: 20px; right: 24px; background: none; border: none; cursor: pointer; color: var(--muted); font-size: 28px; line-height: 1; padding: 4px; transition: color 0.2s; }
-    .modal-close:hover { color: var(--text); }
-    .modal-title { font-family: var(--serif); font-size: 28px; font-weight: 400; color: var(--text); margin-bottom: 8px; }
-    .modal-sub { font-family: var(--sans); font-size: 15px; color: var(--muted); font-weight: 300; margin-bottom: 36px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .form-group { display: flex; flex-direction: column; padding: 20px 0; border-bottom: 1px solid var(--border); }
-    .form-group.full { grid-column: 1 / -1; }
-    .form-label { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-    .form-label span { font-weight: 300; opacity: 0.55; }
-    .form-input, .form-textarea { font-family: var(--sans); font-size: 17px; font-weight: 300; color: var(--text); background: transparent; border: none; outline: none; width: 100%; resize: none; }
-    .form-textarea { min-height: 90px; }
-    .btn-send { margin-top: 36px; display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; background: var(--anthrazit); color: #fff; border: none; cursor: pointer; transition: background 0.2s; }
-    .btn-send:hover { background: #3a3f45; }
-
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .leistungen-grid { grid-template-columns: 1fr 1fr; }
-      .prozess-grid { grid-template-columns: 1fr 1fr; }
-      .cta-inner { grid-template-columns: 1fr; gap: 48px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    }
-    @media (max-width: 640px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      .hero-content, .section-intro, .section-leistungen, .section-prozess, .section-cta, footer { padding-left: 24px; padding-right: 24px; }
-      .leistungen-grid, .prozess-grid, .footer-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-  <link rel="stylesheet" href="cookie-consent.css" />
-  <link rel="stylesheet" href="login-modal.css" />
+<link rel="preload" href="assets/fonts/instrument-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=54961147723a">
+<link rel="stylesheet" href="cookie-consent.css">
 </head>
-<body>
+<body data-kundenbereich="privat">
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
-  <nav id="navbar">
-    <a href="index.html" class="nav-logo">Costa & McLaren Versicherungsmakler GmbH</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Startseite</a></li>
-      <li><a href="gewerbe.html">Gewerbe & Industriekunden</a></li>
-      <li><a href="privatkunden.html" class="active">Privatkunden</a></li>
-      <li><a href="index.html#about">Über uns</a></li>
-      <li><a href="index.html#kontakt">Kontakt</a></li>
-    </ul>
-    <button class="nav-login">Login</button>
-  </nav>
+<header class="header header--dunkel">
+  <div class="header__inner">
+    <a class="wortmarke" href="index.html" aria-label="Costa und McLaren Versicherungsmakler GmbH, zur Startseite">
+      <span class="wortmarke__name">Costa &amp; McLaren</span>
+      <span class="wortmarke__zusatz">Versicherungsmakler GmbH</span>
+    </a>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-label">Unsere Leistungen</p>
-      <h1 class="hero-title">Privatkunden</h1>
-      <p class="hero-sub">Persönlicher Versicherungsschutz für anspruchsvolle Privatpersonen – diskret, individuell und auf höchstem Niveau.</p>
-      <div class="hero-btns">
-        <a href="#" class="btn-white" onclick="openModal(); return false;">Beratung vereinbaren</a>
-      </div>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="hauptnavigation" aria-label="Menü öffnen">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <nav class="nav" id="hauptnavigation" aria-label="Hauptnavigation">
+<a class="nav__link nav__link--aktiv" href="privatkunden.html" aria-current="page">Privatkunden</a>
+<button class="nav__link" type="button" data-flyout-trigger aria-expanded="false" aria-controls="leistungs-menue">Alle Leistungen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+<div class="flyout flyout--privat" id="leistungs-menue" hidden>
+      <a class="flyout__bereich" href="privat-leistungen.html">Privatkunden<span>Zur Leistungsübersicht</span></a>
+      <div class="flyout__spalten flyout__spalten--privat"><div><p class="flyout__gruppe">Persönliche Absicherung</p><a class="flyout__sp" href="private-krankenversicherung.html"><b>Private Krankenversicherung</b></a><a class="flyout__sp" href="vermoegen-sach.html"><b>Private Sachversicherungen</b></a><a class="flyout__sp" href="vorsorge.html"><b>Berufsunfähigkeit und Vorsorge</b></a></div></div>
     </div>
-  </section>
-
-  <!-- EINLEITUNG -->
-  <section class="section-intro">
-    <div class="inner">
-      <p class="section-label reveal">Für Privatpersonen</p>
-      <h2 class="section-title reveal">Ihr persönlicher Versicherungsmakler</h2>
-      <p class="section-text reveal">Ihre persönliche Situation ist einzigartig — Ihr Versicherungsschutz sollte es ebenfalls sein. Als zugelassener Versicherungsmakler nach § 34d GewO analysieren wir Ihren individuellen Bedarf und entwickeln ein maßgeschneidertes Schutzkonzept, das wirklich zu Ihrem Leben passt.</p>
-      <br>
-      <p class="section-text reveal">Wir arbeiten ausschließlich in Ihrem Interesse, unabhängig von einzelnen Versicherern. Diskret, kompetent und auf Augenhöhe — für Privatpersonen mit dem Anspruch auf das Beste.</p>
-    </div>
-  </section>
-
-  <!-- LEISTUNGEN -->
-  <section class="section-leistungen">
-    <div class="inner">
-      <p class="section-label reveal">Leistungsbereiche</p>
-      <h2 class="section-title reveal">Unsere Leistungen im Überblick</h2>
-      <div class="leistungen-grid">
-        <div class="leistung-card reveal"><div class="l-num">01</div><h3 class="l-name">Privathaftpflicht­versicherung</h3><div class="l-line"></div><p class="l-desc">Schutz gegen Schadensersatzansprüche Dritter bei Personen-, Sach- und Vermögensschäden. Lückenlose Deckung für Privatpersonen.</p></div>
-        <div class="leistung-card reveal"><div class="l-num">02</div><h3 class="l-name">Hausrat­versicherung</h3><div class="l-line"></div><p class="l-desc">Absicherung Ihres Hausrats gegen Feuer, Einbruchdiebstahl, Leitungswasser und Sturm. Inklusive Sonderregelungen für Kunst und Schmuck.</p></div>
-        <div class="leistung-card reveal"><div class="l-num">03</div><h3 class="l-name">Wohngebäude­versicherung</h3><div class="l-line"></div><p class="l-desc">Umfassender Schutz für Ihre Immobilie gegen Feuer, Sturm, Hagel und Elementarschäden — individuell angepasst.</p></div>
-        <div class="leistung-card reveal"><div class="l-num">04</div><h3 class="l-name">Private Kranken- & Pflege­versicherung</h3><div class="l-line"></div><p class="l-desc">Optimale Absicherung für Ihre Gesundheit und die Ihrer Familie — als Vollversicherung oder Zusatzversicherung.</p></div>
-        <div class="leistung-card reveal"><div class="l-num">05</div><h3 class="l-name">Berufsunfähigkeits­versicherung</h3><div class="l-line"></div><p class="l-desc">Absicherung Ihrer Arbeitskraft. Im Fall einer Berufsunfähigkeit sichert diese Versicherung Ihren Lebensstandard langfristig.</p></div>
-        <div class="leistung-card reveal"><div class="l-num">06</div><h3 class="l-name">Risikolebens­versicherung</h3><div class="l-line"></div><p class="l-desc">Finanzielle Absicherung Ihrer Angehörigen im Todesfall — besonders wichtig für Familien und Immobilieneigentümer.</p></div>
-        <div class="leistung-card reveal"><div class="l-num">07</div><h3 class="l-name">Kfz-Versicherung</h3><div class="l-line"></div><p class="l-desc">Optimaler Schutz für Ihr Fahrzeug von der Haftpflicht bis zur Vollkasko — mit den besten Konditionen am Markt.</p></div>
-        <div class="leistung-card reveal"><div class="l-num">08</div><h3 class="l-name">Rechtsschutz­versicherung</h3><div class="l-line"></div><p class="l-desc">Rechtliche Absicherung für Sie und Ihre Familie im Privat-, Berufs- und Verkehrsbereich.</p></div>
-        <div class="leistung-card reveal"><div class="l-num">09</div><h3 class="l-name">Unfall­versicherung</h3><div class="l-line"></div><p class="l-desc">Finanzielle Absicherung bei dauerhaften Beeinträchtigungen durch Unfälle — weltweit und rund um die Uhr.</p></div>
-        <div class="leistung-card reveal"><div class="l-num">10</div><h3 class="l-name">Reise­versicherung</h3><div class="l-line"></div><p class="l-desc">Umfassender Schutz auf Reisen: Reiserücktritt, Auslandskrankenversicherung und Gepäckschutz weltweit.</p></div>
-        <div class="leistung-card reveal"><div class="l-num">11</div><h3 class="l-name">Betriebliche Alters­versorgung (bAV)</h3><div class="l-line"></div><p class="l-desc">Steuerlich begünstigte Altersvorsorge — wir optimieren Ihre persönliche Vorsorgestrategie für den Ruhestand.</p></div>
-        <div class="leistung-card reveal"><div class="l-num">12</div><h3 class="l-name">Cyber-Versicherung Privat</h3><div class="l-line"></div><p class="l-desc">Schutz vor Identitätsdiebstahl, Datenmissbrauch und Cyberangriffen im privaten Bereich. Inklusive Soforthilfe.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VORGEHENSWEISE -->
-  <section class="section-prozess">
-    <div class="inner">
-      <p class="section-label reveal">Vorgehensweise</p>
-      <h2 class="section-title reveal">Unsere Vorgehensweise</h2>
-      <div class="prozess-grid">
-        <div class="prozess-step reveal">
-          <div class="p-num">01</div>
-          <h3 class="p-name">Erstgespräch</h3>
-          <div class="p-line"></div>
-          <p class="p-desc">Wir lernen Sie kennen: Ihre Lebenssituation, Ihre Wünsche und Ihre bestehenden Versicherungen. Persönlich, diskret und auf Augenhöhe.</p>
-        </div>
-        <div class="prozess-step reveal">
-          <div class="p-num">02</div>
-          <h3 class="p-name">Bedarfsanalyse</h3>
-          <div class="p-line"></div>
-          <p class="p-desc">Systematische Erfassung Ihrer individuellen Risiken und Lebenssituation. Wir identifizieren Deckungslücken und Optimierungspotenziale in Ihrem bestehenden Schutz.</p>
-        </div>
-        <div class="prozess-step reveal">
-          <div class="p-num">03</div>
-          <h3 class="p-name">Marktvergleich & Konzeption</h3>
-          <div class="p-line"></div>
-          <p class="p-desc">Wir vergleichen die relevanten Anbieter und entwickeln ein individuelles Versicherungskonzept — wirtschaftlich sinnvoll, inhaltlich belastbar und auf Sie zugeschnitten.</p>
-        </div>
-        <div class="prozess-step reveal">
-          <div class="p-num">04</div>
-          <h3 class="p-name">Umsetzung & Betreuung</h3>
-          <div class="p-line"></div>
-          <p class="p-desc">Übernahme der gesamten Abwicklung: Antragstellung, Policierung, Vertragsverwaltung. Laufende Überprüfung bei veränderten Lebensumständen.</p>
-        </div>
-        <div class="prozess-step reveal">
-          <div class="p-num">05</div>
-          <h3 class="p-name">Schadenmanagement</h3>
-          <div class="p-line"></div>
-          <p class="p-desc">Im Schadensfall übernehmen wir die vollständige Kommunikation mit dem Versicherer und begleiten Sie bis zur abschließenden Regulierung.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section-cta">
-    <div class="cta-inner">
-      <div>
-        <h2 class="cta-title reveal">Lassen Sie uns über Ihren persönlichen Versicherungsschutz sprechen.</h2>
-        <p class="cta-text reveal">Vereinbaren Sie ein unverbindliches Erstgespräch. Wir nehmen uns die Zeit, Ihre Situation zu verstehen — und entwickeln eine Lösung, die wirklich zu Ihrem Leben passt.</p>
-        <a href="#" class="btn-dark reveal" onclick="openModal(); return false;">Beratung vereinbaren</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-grid">
-      <div><div class="footer-brand">Costa & McLaren<br>Versicherungsmakler GmbH</div><p class="footer-sub">Präzise. Diskret. Auf Augenhöhe.</p></div>
-      <div><div class="footer-col-title">Standort</div><ul class="footer-col-list"><li>Poststr. 60</li><li>41516 Grevenbroich</li></ul></div>
-      <div><div class="footer-col-title">Kontakt</div><ul class="footer-col-list"><li><a href="mailto:info@costa-mclaren.de">info@costa-mclaren.de</a></li><li>02181-68717</li></ul></div>
-      <div><div class="footer-col-title">Info</div><ul class="footer-col-list"><li><a href="index.html#about">Über uns</a></li><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2025 Costa & McLaren Versicherungsmakler GmbH. Alle Rechte vorbehalten.</span>
-      <span class="footer-copy">Versicherungsmakler (§ 34d GewO)</span>
-    </div>
-  </footer>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80) })
-    }, { threshold: 0.1 })
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').style.background = window.scrollY > 50 ? 'rgba(242,241,239,0.99)' : 'rgba(242,241,239,0.96)'
-    })
-
-    function openModal() { document.getElementById('contactModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
-    function closeModal() { document.getElementById('contactModal').classList.remove('open'); document.body.style.overflow = ''; }
-    function closeModalOnBackdrop(e) { if (e.target === document.getElementById('contactModal')) closeModal(); }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); })
-
-    const SUCCESS_HTML = `<div style="padding:32px 0; text-align:center;">
-  <p style="font-family:var(--serif); font-size:26px; color:var(--text); margin-bottom:12px;">Vielen Dank!</p>
-  <p style="font-family:var(--sans); font-size:16px; color:var(--muted); font-weight:300; line-height:1.7;">Ihre Nachricht wurde erfolgreich gesendet.<br>Wir melden uns zeitnah bei Ihnen.</p>
-</div>`;
-
-    document.getElementById('modalContactForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const btn = this.querySelector('[type=submit]');
-      btn.textContent = 'Wird gesendet…';
-      btn.disabled = true;
-      try {
-        const res = await fetch('https://formsubmit.co/ajax/info@costa-mclaren.de', {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(this)
-        });
-        const data = await res.json();
-        if (data.success === 'true' || data.success === true) {
-          this.innerHTML = SUCCESS_HTML;
-        } else { throw new Error(data.message || 'unknown'); }
-      } catch(err) {
-        btn.textContent = 'Senden';
-        btn.disabled = false;
-        const msg = err.message && err.message.includes('Activation')
-          ? 'Das Formular muss einmalig aktiviert werden. Bitte prüfen Sie das Postfach info@costa-mclaren.de und klicken Sie den Aktivierungs-Link von Formsubmit.co.'
-          : 'Etwas ist schiefgelaufen. Bitte schreiben Sie uns direkt an info@costa-mclaren.de';
-        alert(msg);
-      }
-    });
-  </script>
-
-  <!-- Kontaktformular Modal -->
-  <div class="modal-backdrop" id="contactModal" onclick="closeModalOnBackdrop(event)">
-    <div class="modal">
-      <button class="modal-close" onclick="closeModal()" aria-label="Schließen">×</button>
-      <h2 class="modal-title">Beratung vereinbaren</h2>
-      <p class="modal-sub">Füllen Sie das Formular aus – wir melden uns zeitnah bei Ihnen.</p>
-      <form id="modalContactForm">
-        <input type="hidden" name="_subject" value="Neue Kontaktanfrage – Costa & McLaren Versicherungsmakler GmbH" />
-        <input type="hidden" name="_captcha" value="false" />
-        <div class="form-row">
-          <div class="form-group"><label class="form-label">Vorname <span>(erforderlich)</span></label><input type="text" name="Vorname" class="form-input" placeholder="Max" required /></div>
-          <div class="form-group"><label class="form-label">Nachname <span>(erforderlich)</span></label><input type="text" name="Nachname" class="form-input" placeholder="Mustermann" required /></div>
-        </div>
-        <div class="form-group full"><label class="form-label">E-Mail-Adresse <span>(erforderlich)</span></label><input type="email" name="E-Mail" class="form-input" placeholder="max@beispiel.de" required /></div>
-        <div class="form-group full"><label class="form-label">Telefonnummer <span>(erforderlich)</span></label><input type="tel" name="Telefon" class="form-input" placeholder="+49 211 123456" required /></div>
-        <div class="form-group full"><label class="form-label">Nachricht <span>(erforderlich)</span></label><textarea name="Nachricht" class="form-textarea" placeholder="Ihre Nachricht..." required></textarea></div>
-        <button type="submit" class="btn-send">Senden</button>
-      </form>
-    </div>
+<a class="nav__link" href="ueber-uns.html?bereich=privat">Über uns</a>
+<a class="nav__link" href="kontakt.html?bereich=privat">Kontakt</a>
+<a class="nav__link nav__link--wechsel" href="index.html">Kundenbereich wechseln</a>
+</nav>
   </div>
+</header>
 
-  <!-- Cookie Consent Banner -->
+<main id="inhalt">
+<section class="hero hero--kompakt" aria-labelledby="hero-titel">
+    <div class="hero__links" aria-hidden="true"></div>
+    <div class="hero__rechts" aria-hidden="true"></div>
+    <div class="hero__naht" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <div class="hero__text">
+        <h1 class="h-hero reveal" id="hero-titel" style="color:var(--white)">Nah am Menschen.<br>Für das, was Ihnen wichtig ist.</h1>
+        <p class="lede lede--hell reveal">Persönliche Versicherungsberatung für Ihre Lebenssituation. Wir begleiten Sie bei der Absicherung von Gesundheit, Einkommen und Eigentum sowie bei Ihrer Vorsorge.</p>
+        <div class="hero__ctas reveal">
+          <a class="btn" href="kontakt.html?bereich=privat">Gespräch vereinbaren</a>
+          <a class="btn btn--geist" href="privat-leistungen.html">Private Absicherung</a>
+        </div>
+      </div>
+      <div class="fakten hero__foto reveal">
+        <figure class="foto-platzhalter" aria-label="Platzhalter für ein Foto im Privatkundenbereich">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 5-5 4 4 3-3 6 6"/></svg>
+          <figcaption>Foto folgt</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sektion sektion--grau" aria-labelledby="wege-titel">
+    <div class="wrap">
+      <div class="sektion__kopf reveal">
+        <p class="eyebrow">Unsere Beratungsfelder</p>
+        <h2 class="h-sektion" id="wege-titel">Der passende Einstieg für Ihr Anliegen.</h2>
+      </div>
+      <div class="karten-2">
+        <article class="karte reveal">
+          <p class="eyebrow">Für Privatkunden</p>
+          <h3 class="karte__titel">Versicherungsschutz für Ihre Lebenssituation.</h3>
+          <p class="lede">Von der Krankenversicherung über private Sachwerte bis zu Berufsunfähigkeit und Vorsorge.</p>
+          <div class="karte__fuellung"></div>
+          <a class="pfeil-link" href="privat-leistungen.html">Private Leistungen ansehen <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="karte reveal">
+          <p class="eyebrow">Persönliche Beratung</p>
+          <h3 class="karte__titel">Feste Ansprechpartner für Ihre Fragen.</h3>
+          <p class="lede">Wir begleiten Sie bei der Auswahl, der laufenden Betreuung und im Schadenfall.</p>
+          <div class="karte__fuellung"></div>
+          <a class="pfeil-link" href="kontakt.html?bereich=privat">Beratung anfragen <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sektion" aria-labelledby="prozess-titel">
+    <div class="wrap">
+      <div class="sektion__kopf reveal">
+        <p class="eyebrow">Unsere Arbeitsweise</p>
+        <h2 class="h-sektion" id="prozess-titel">Strukturiert beraten. Persönlich begleiten.</h2>
+      </div>
+      <ol class="schritte" role="list">
+        <li class="schritt reveal"><span class="schritt__num">01</span><h3 class="schritt__titel">Analyse</h3><p style="color:var(--grau-650)">Wir erfassen Ihre Lebenssituation, Ihre Ziele und bestehende Verträge.</p></li>
+        <li class="schritt reveal"><span class="schritt__num">02</span><h3 class="schritt__titel">Konzeption</h3><p style="color:var(--grau-650)">Wir strukturieren den Bedarf und vergleichen geeignete Lösungen.</p></li>
+        <li class="schritt reveal"><span class="schritt__num">03</span><h3 class="schritt__titel">Umsetzung</h3><p style="color:var(--grau-650)">Wir begleiten den Abschluss und dokumentieren unsere Empfehlung nachvollziehbar.</p></li>
+        <li class="schritt reveal"><span class="schritt__num">04</span><h3 class="schritt__titel">Betreuung</h3><p style="color:var(--grau-650)">Wir halten den Schutz aktuell und begleiten Sie auch im Schadenfall.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sektion sektion--navy kompakt-cta" aria-labelledby="kontakt-titel">
+    <div class="wrap kompakt-cta__inner reveal">
+      <div>
+        <p class="eyebrow eyebrow--hell">Persönlicher Austausch</p>
+        <h2 class="h-sektion" id="kontakt-titel">Lassen Sie uns Ihre Situation einordnen.</h2>
+        <p class="lede lede--hell">Wir klären, welche nächsten Schritte für Ihre private Absicherung sinnvoll sind.</p>
+      </div>
+      <div class="kompakt-cta__aktionen">
+        <a class="btn" href="kontakt.html?bereich=privat">Kontakt aufnehmen</a>
+        <a class="btn btn--geist tab-num" href="tel:+49218168717">02181 68717</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__oben">
+      <div class="footer__firma">
+        <a class="wortmarke footer__wortmarke" href="index.html" aria-label="Costa und McLaren Versicherungsmakler GmbH, zur Startseite">
+          <span class="wortmarke__name">Costa &amp; McLaren</span>
+          <span class="wortmarke__zusatz">Versicherungsmakler GmbH</span>
+        </a>
+        <address class="footer__kontakt">
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Poststra%C3%9Fe+60%2C+41516+Grevenbroich" target="_blank" rel="noopener noreferrer">Poststraße 60<br>41516 Grevenbroich</a>
+          <a href="tel:+49218168717">02181 68717</a>
+          <a href="mailto:info@costa-mclaren.de">info@costa-mclaren.de</a>
+        </address>
+      </div>
+      <nav aria-labelledby="fn-1"><h2 id="fn-1">Navigation</h2><ul><li><a href="privatkunden.html">Privatkunden</a></li><li><a href="privat-leistungen.html">Alle Leistungen</a></li><li><a href="ueber-uns.html?bereich=privat">Über uns</a></li><li><a href="kontakt.html?bereich=privat">Kontakt</a></li><li><a href="index.html">Kundenbereich wechseln</a></li></ul></nav>
+      <nav aria-labelledby="fn-2">
+        <h2 id="fn-2">Rechtliches</h2>
+        <ul>
+          <li><a href="impressum.html?bereich=privat">Impressum</a></li>
+          <li><a href="datenschutz.html?bereich=privat">Datenschutz</a></li>
+          <li><a href="erstinformation.html?bereich=privat">Erstinformation (§ 15 VersVermV)</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Cookie Consent Banner -->
   <div class="cc-banner" id="cc-banner" hidden role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc">
     <h2 id="cc-title">Cookie-Einstellungen</h2>
-    <p id="cc-desc">Diese Website verwendet Cookies und ähnliche Technologien. Einige sind technisch notwendig, andere helfen uns, die Website zu verbessern. Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a> und im <a href="impressum.html">Impressum</a>.</p>
+    <p id="cc-desc">Diese Website verwendet Cookies und ähnliche Technologien. Einige sind technisch notwendig, andere helfen uns, die Website zu verbessern. Weitere Informationen finden Sie in unserer <a href="datenschutz.html?bereich=privat">Datenschutzerklärung</a> und im <a href="impressum.html?bereich=privat">Impressum</a>.</p>
     <div class="cc-buttons">
       <button type="button" class="cc-btn" data-cc-action="reject">Alle ablehnen</button>
       <button type="button" class="cc-btn" data-cc-action="settings">Einstellungen</button>
@@ -407,7 +225,7 @@
           <tbody><tr><td colspan="4" style="color:#999;font-style:italic;">Derzeit keine Marketing-Cookies aktiv.</td></tr></tbody></table>
         </details>
       </div>
-      <p style="font-size:12px;color:#6b6f74;font-family:'Lato',sans-serif;font-weight:300;margin-top:20px;">Sie können Ihre Einwilligung jederzeit über „Cookie-Einstellungen" unten links widerrufen.</p>
+      <p class="cc-note">Sie können Ihre Einwilligung jederzeit über „Cookie-Einstellungen" widerrufen.</p>
       <div class="cc-modal-buttons">
         <button type="button" class="cc-btn" data-cc-action="reject">Alle ablehnen</button>
         <button type="button" class="cc-btn" data-cc-action="save">Auswahl speichern</button>
@@ -417,44 +235,7 @@
   </div>
 
   <button type="button" class="cc-revoke" id="cc-revoke" hidden>Cookie-Einstellungen</button>
-  <script src="cookie-consent.js"></script>
-
-  <!-- Login Modal -->
-  <div class="lm-backdrop" id="loginModal">
-    <div class="lm-box">
-      <button class="lm-close" id="loginModalClose" aria-label="Schließen">×</button>
-      <h2 class="lm-title">Kundenportal</h2>
-
-      <div class="lm-section">
-        <p class="lm-label">Bereits registriert? Jetzt einloggen</p>
-        <a href="https://meine-finanzen.digital/login" target="_blank" rel="noopener" class="lm-login-btn">Zum Login</a>
-      </div>
-
-      <hr class="lm-divider" />
-
-      <div class="lm-section">
-        <p class="lm-label">Noch kein Konto? Jetzt registrieren</p>
-        <div class="lm-reg-row">
-          <a href="https://meine-finanzen.digital/anmelden/f/41f3bdb7-f872-11f0-9995-960000d203a8" target="_blank" rel="noopener" class="lm-reg-btn">Firmenkunden</a>
-          <a href="https://meine-finanzen.digital/anmelden/m/4203efd0-f872-11f0-9995-960000d203a8" target="_blank" rel="noopener" class="lm-reg-btn">Privatkunden</a>
-        </div>
-      </div>
-
-      <hr class="lm-divider" />
-
-      <div class="lm-section">
-        <p class="lm-label">Finanzmanager-App</p>
-        <div class="lm-badge-row">
-          <a href="https://play.google.com/store/apps/details?id=de.demv.finanzmanager.app" target="_blank" rel="noopener">
-            <img src="https://mvp.professional.works/images/extlogin/playstore.svg" alt="Finanzmanager Playstore Badge" style="height:40px;width:135px;" />
-          </a>
-          <a href="https://apps.apple.com/app/id6648793330" target="_blank" rel="noopener">
-            <img src="https://mvp.professional.works/images/extlogin/appstore.svg" alt="Finanzmanager Appstore Badge" style="height:40px;width:120px;" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="login-modal.js"></script>
+<script src="assets/js/site.js?v=4f7727f3472a" defer></script>
+<script src="cookie-consent.js" defer></script>
 </body>
 </html>

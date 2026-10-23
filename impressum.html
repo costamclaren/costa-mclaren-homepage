@@ -1,100 +1,55 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang="de" class="js">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Impressum – Costa & McLaren Versicherungsmakler GmbH</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --anthrazit: #2d3035;
-      --bg: #f2f1ef;
-      --white: #ffffff;
-      --text: #1a1c1e;
-      --muted: #6b6f74;
-      --gold: #b89a6a;
-      --border: rgba(45,48,53,0.12);
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'Lato', sans-serif;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
-    a { text-decoration: none; color: inherit; }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 90px; background: rgba(242,241,239,0.96);
-      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; padding: 0 56px;
-      transition: background 0.3s;
-    }
-    .nav-logo { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); letter-spacing: 0.01em; white-space: nowrap; margin-right: auto; }
-    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .nav-links a { font-family: var(--sans); font-size: 15px; font-weight: 400; color: var(--text); letter-spacing: 0.04em; white-space: nowrap; position: relative; padding-bottom: 2px; }
-    .nav-links a.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 1px; background: var(--text); }
-    .nav-login { margin-left: 32px; font-family: var(--sans); font-size: 13px; font-weight: 400; letter-spacing: 0.06em; padding: 8px 22px; border: 1px solid var(--text); color: var(--text); background: transparent; cursor: pointer; white-space: nowrap; transition: background 0.2s, color 0.2s; }
-    .nav-login:hover { background: var(--text); color: var(--white); }
-
-    /* CONTENT */
-    .page-content { max-width: 860px; margin: 0 auto; padding: 160px 56px 120px; }
-    .page-label { font-family: var(--sans); font-size: 18px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
-    .page-title { font-family: var(--serif); font-size: clamp(26px, 2.8vw, 42px); font-weight: 400; color: var(--text); line-height: 1.2; margin-bottom: 64px; }
-
-    .impressum-section { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
-    .impressum-section:last-child { border-bottom: none; }
-    .impressum-section h2 { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); margin-bottom: 20px; }
-    .impressum-section p { font-family: var(--sans); font-size: 17px; line-height: 1.9; color: var(--muted); font-weight: 300; margin-bottom: 12px; }
-    .impressum-section p:last-child { margin-bottom: 0; }
-    .impressum-section a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
-    .impressum-section a:hover { color: var(--gold); }
-
-    /* FOOTER */
-    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 80px 56px 48px; }
-    .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; margin-bottom: 64px; }
-    .footer-brand { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); line-height: 1.25; margin-bottom: 14px; }
-    .footer-sub { font-family: var(--sans); font-size: 15px; color: var(--muted); font-weight: 300; line-height: 1.6; }
-    .footer-col-title { font-family: var(--serif); font-size: 21px; font-weight: 400; color: var(--text); margin-bottom: 20px; }
-    .footer-col-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col-list li, .footer-col-list a { font-family: var(--sans); font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.6; }
-    .footer-col-list a:hover { color: var(--text); text-decoration: underline; }
-    .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(45,48,53,0.07); display: flex; justify-content: space-between; align-items: center; }
-    .footer-copy { font-family: var(--sans); font-size: 12px; color: var(--muted); font-weight: 300; }
-
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    }
-    @media (max-width: 640px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      .page-content { padding: 140px 24px 80px; }
-      footer { padding-left: 24px; padding-right: 24px; }
-      .footer-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-  <link rel="stylesheet" href="cookie-consent.css" />
-  <link rel="stylesheet" href="login-modal.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum | Costa & McLaren</title>
+<meta name="description" content="Impressum und Anbieterkennzeichnung der Costa & McLaren Versicherungsmakler GmbH.">
+<meta name="theme-color" content="#081F3A">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://costa-mclaren.de/impressum.html">
+<link rel="preload" href="assets/fonts/instrument-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=54961147723a">
+<link rel="stylesheet" href="assets/css/rechtliches.css">
+<link rel="stylesheet" href="cookie-consent.css">
 </head>
-<body>
+<body data-kundenbereich="neutral">
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
-  <nav id="navbar">
-    <a href="/" class="nav-logo">Costa & McLaren Versicherungsmakler GmbH</a>
-    <ul class="nav-links">
-      <li><a href="/">Startseite</a></li>
-    </ul>
-  </nav>
+<header class="header header--dunkel">
+  <div class="header__inner">
+    <a class="wortmarke" href="index.html" aria-label="Costa und McLaren Versicherungsmakler GmbH, zur Startseite">
+      <span class="wortmarke__name">Costa &amp; McLaren</span>
+      <span class="wortmarke__zusatz">Versicherungsmakler GmbH</span>
+    </a>
 
-  <div class="page-content">
-    <p class="page-label">Rechtliches</p>
-    <h1 class="page-title">Impressum</h1>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="hauptnavigation" aria-label="Menü öffnen">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
 
-    <div class="impressum-section">
+    <nav class="nav" id="hauptnavigation" aria-label="Hauptnavigation">
+<a class="nav__link" href="gewerbe.html">Gewerbekunden</a>
+<a class="nav__link" href="privatkunden.html">Privatkunden</a>
+<a class="nav__link" href="ueber-uns.html">Über uns</a>
+<a class="nav__link" href="kontakt.html">Kontakt</a>
+</nav>
+  </div>
+</header>
+
+<main id="inhalt">
+  <section class="sektion sektion--navy recht-hero" aria-labelledby="recht-titel">
+    <div class="wrap">
+      <p class="eyebrow eyebrow--hell">Rechtliches</p>
+      <h1 class="h-seite" id="recht-titel" style="color:var(--white)">Impressum</h1>
+      <p class="lede lede--hell">Anbieterkennzeichnung und Pflichtangaben der Costa & McLaren Versicherungsmakler GmbH.</p>
+    </div>
+  </section>
+
+  <section class="sektion">
+    <div class="wrap recht-inhalt">
+<div class="impressum-section">
       <h2>Angaben gemäß § 5 DDG</h2>
       <p>Costa & McLaren Versicherungsmakler GmbH<br><a href="https://www.google.com/maps/dir/?api=1&destination=Poststraße+60,+41516+Grevenbroich" target="_blank" rel="noopener">Poststr. 60<br>41516 Grevenbroich<br>Deutschland</a></p>
       <p>Telefon: <a href="tel:+49218168717">02181-68717</a><br>E-Mail: <a href="mailto:info@costa-mclaren.de">info@costa-mclaren.de</a></p>
@@ -158,28 +113,39 @@
       <h2>Haftungshinweis</h2>
       <p>Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich. Für externe Links übernehmen wir keine Haftung; für den Inhalt verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
     </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__oben">
+      <div class="footer__firma">
+        <a class="wortmarke footer__wortmarke" href="index.html" aria-label="Costa und McLaren Versicherungsmakler GmbH, zur Startseite">
+          <span class="wortmarke__name">Costa &amp; McLaren</span>
+          <span class="wortmarke__zusatz">Versicherungsmakler GmbH</span>
+        </a>
+        <address class="footer__kontakt">
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Poststra%C3%9Fe+60%2C+41516+Grevenbroich" target="_blank" rel="noopener noreferrer">Poststraße 60<br>41516 Grevenbroich</a>
+          <a href="tel:+49218168717">02181 68717</a>
+          <a href="mailto:info@costa-mclaren.de">info@costa-mclaren.de</a>
+        </address>
+      </div>
+      <nav aria-labelledby="fn-1"><h2 id="fn-1">Navigation</h2><ul><li><a href="gewerbe.html">Gewerbekunden</a></li><li><a href="privatkunden.html">Privatkunden</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></nav>
+      <nav aria-labelledby="fn-2">
+        <h2 id="fn-2">Rechtliches</h2>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+          <li><a href="erstinformation.html">Erstinformation (§ 15 VersVermV)</a></li>
+        </ul>
+      </nav>
+    </div>
+
   </div>
+</footer>
 
-  <footer>
-    <div class="footer-grid">
-      <div><div class="footer-brand">Costa & McLaren<br>Versicherungsmakler GmbH</div><p class="footer-sub">Präzise. Diskret. Auf Augenhöhe.</p></div>
-      <div><div class="footer-col-title">Standort</div><ul class="footer-col-list"><li><a href="https://www.google.com/maps/dir/?api=1&destination=Poststraße+60,+41516+Grevenbroich" target="_blank" rel="noopener">Poststr. 60<br>41516 Grevenbroich</a></li></ul></div>
-      <div><div class="footer-col-title">Kontakt</div><ul class="footer-col-list"><li><a href="mailto:info@costa-mclaren.de">info@costa-mclaren.de</a></li><li><a href="tel:+49218168717">02181-68717</a></li></ul></div>
-      <div><div class="footer-col-title">Info</div><ul class="footer-col-list"><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul></div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Costa & McLaren Versicherungsmakler GmbH. Alle Rechte vorbehalten.</span>
-      <span class="footer-copy">Versicherungsmakler (§ 34d GewO)</span>
-    </div>
-  </footer>
-
-  <script>
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').style.background = window.scrollY > 50 ? 'rgba(242,241,239,0.99)' : 'rgba(242,241,239,0.96)'
-    })
-  </script>
-
-  <!-- Cookie Consent Banner -->
+<!-- Cookie Consent Banner -->
   <div class="cc-banner" id="cc-banner" hidden role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc">
     <h2 id="cc-title">Cookie-Einstellungen</h2>
     <p id="cc-desc">Diese Website verwendet Cookies und ähnliche Technologien. Einige sind technisch notwendig, andere helfen uns, die Website zu verbessern. Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a> und im <a href="impressum.html">Impressum</a>.</p>
@@ -242,7 +208,7 @@
           <tbody><tr><td colspan="4" style="color:#999;font-style:italic;">Derzeit keine Marketing-Cookies aktiv.</td></tr></tbody></table>
         </details>
       </div>
-      <p style="font-size:12px;color:#6b6f74;font-family:'Lato',sans-serif;font-weight:300;margin-top:20px;">Sie können Ihre Einwilligung jederzeit über „Cookie-Einstellungen" unten links widerrufen.</p>
+      <p class="cc-note">Sie können Ihre Einwilligung jederzeit über „Cookie-Einstellungen" widerrufen.</p>
       <div class="cc-modal-buttons">
         <button type="button" class="cc-btn" data-cc-action="reject">Alle ablehnen</button>
         <button type="button" class="cc-btn" data-cc-action="save">Auswahl speichern</button>
@@ -252,44 +218,9 @@
   </div>
 
   <button type="button" class="cc-revoke" id="cc-revoke" hidden>Cookie-Einstellungen</button>
-  <script src="cookie-consent.js"></script>
 
-  <!-- Login Modal -->
-  <div class="lm-backdrop" id="loginModal">
-    <div class="lm-box">
-      <button class="lm-close" id="loginModalClose" aria-label="Schließen">×</button>
-      <h2 class="lm-title">Kundenportal</h2>
 
-      <div class="lm-section">
-        <p class="lm-label">Bereits registriert? Jetzt einloggen</p>
-        <a href="https://meine-finanzen.digital/login" target="_blank" rel="noopener" class="lm-login-btn">Zum Login</a>
-      </div>
-
-      <hr class="lm-divider" />
-
-      <div class="lm-section">
-        <p class="lm-label">Noch kein Konto? Jetzt registrieren</p>
-        <div class="lm-reg-row">
-          <a href="https://meine-finanzen.digital/anmelden/f/41f3bdb7-f872-11f0-9995-960000d203a8" target="_blank" rel="noopener" class="lm-reg-btn">Firmenkunden</a>
-          <a href="https://meine-finanzen.digital/anmelden/m/4203efd0-f872-11f0-9995-960000d203a8" target="_blank" rel="noopener" class="lm-reg-btn">Privatkunden</a>
-        </div>
-      </div>
-
-      <hr class="lm-divider" />
-
-      <div class="lm-section">
-        <p class="lm-label">Finanzmanager-App</p>
-        <div class="lm-badge-row">
-          <a href="https://play.google.com/store/apps/details?id=de.demv.finanzmanager.app" target="_blank" rel="noopener">
-            <img src="https://mvp.professional.works/images/extlogin/playstore.svg" alt="Finanzmanager Playstore Badge" style="height:40px;width:135px;" />
-          </a>
-          <a href="https://apps.apple.com/app/id6648793330" target="_blank" rel="noopener">
-            <img src="https://mvp.professional.works/images/extlogin/appstore.svg" alt="Finanzmanager Appstore Badge" style="height:40px;width:120px;" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="login-modal.js"></script>
+<script src="assets/js/site.js?v=4f7727f3472a" defer></script>
+<script src="cookie-consent.js" defer></script><script type="application/json" id="cm-kundenmenues">{"gewerbe": {"navigation": "<a class=\"nav__link\" href=\"gewerbe.html\">Gewerbekunden<\/a>\n<button class=\"nav__link\" type=\"button\" data-flyout-trigger aria-expanded=\"false\" aria-controls=\"leistungs-menue\">Alle Leistungen <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 9l6 6 6-6\"/><\/svg><\/button>\n<div class=\"flyout flyout--gewerbe\" id=\"leistungs-menue\" hidden>\n      <a class=\"flyout__bereich\" href=\"gewerbe-leistungen.html\">Gewerbekunden<span>Zur Leistungsübersicht<\/span><\/a>\n      <div class=\"flyout__spalten flyout__spalten--gewerbe\"><div><p class=\"flyout__gruppe\">Haftpflicht und Sachwerte<\/p><a class=\"flyout__sp\" href=\"haftpflicht.html\"><b>Haftpflichtversicherungen<\/b><\/a><a class=\"flyout__sp\" href=\"sachversicherung.html\"><b>Sachversicherungen<\/b><\/a><\/div><div><p class=\"flyout__gruppe\">Cyber und Mobilität<\/p><a class=\"flyout__sp\" href=\"cyber.html\"><b>Cyberversicherung<\/b><\/a><a class=\"flyout__sp\" href=\"kfz-fuhrpark.html\"><b>Fuhrpark und Kfz-Versicherung<\/b><\/a><\/div><div><p class=\"flyout__gruppe\">Mitarbeiter und Vorsorge<\/p><a class=\"flyout__sp\" href=\"betriebliche-altersversorgung.html\"><b>Betriebliche Altersversorgung<\/b><\/a><a class=\"flyout__sp\" href=\"betriebliche-krankenversicherung.html\"><b>Betriebliche Krankenversicherung<\/b><\/a><\/div><\/div>\n    <\/div>\n<a class=\"nav__link\" href=\"ueber-uns.html?bereich=gewerbe\">Über uns<\/a>\n<a class=\"nav__link\" href=\"kontakt.html?bereich=gewerbe\">Kontakt<\/a>\n<a class=\"nav__link nav__link--wechsel\" href=\"index.html\">Kundenbereich wechseln<\/a>", "footer": "<h2 id=\"fn-1\">Navigation<\/h2><ul><li><a href=\"gewerbe.html\">Gewerbekunden<\/a><\/li><li><a href=\"gewerbe-leistungen.html\">Alle Leistungen<\/a><\/li><li><a href=\"ueber-uns.html?bereich=gewerbe\">Über uns<\/a><\/li><li><a href=\"kontakt.html?bereich=gewerbe\">Kontakt<\/a><\/li><li><a href=\"index.html\">Kundenbereich wechseln<\/a><\/li><\/ul>"}, "privat": {"navigation": "<a class=\"nav__link\" href=\"privatkunden.html\">Privatkunden<\/a>\n<button class=\"nav__link\" type=\"button\" data-flyout-trigger aria-expanded=\"false\" aria-controls=\"leistungs-menue\">Alle Leistungen <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 9l6 6 6-6\"/><\/svg><\/button>\n<div class=\"flyout flyout--privat\" id=\"leistungs-menue\" hidden>\n      <a class=\"flyout__bereich\" href=\"privat-leistungen.html\">Privatkunden<span>Zur Leistungsübersicht<\/span><\/a>\n      <div class=\"flyout__spalten flyout__spalten--privat\"><div><p class=\"flyout__gruppe\">Persönliche Absicherung<\/p><a class=\"flyout__sp\" href=\"private-krankenversicherung.html\"><b>Private Krankenversicherung<\/b><\/a><a class=\"flyout__sp\" href=\"vermoegen-sach.html\"><b>Private Sachversicherungen<\/b><\/a><a class=\"flyout__sp\" href=\"vorsorge.html\"><b>Berufsunfähigkeit und Vorsorge<\/b><\/a><\/div><\/div>\n    <\/div>\n<a class=\"nav__link\" href=\"ueber-uns.html?bereich=privat\">Über uns<\/a>\n<a class=\"nav__link\" href=\"kontakt.html?bereich=privat\">Kontakt<\/a>\n<a class=\"nav__link nav__link--wechsel\" href=\"index.html\">Kundenbereich wechseln<\/a>", "footer": "<h2 id=\"fn-1\">Navigation<\/h2><ul><li><a href=\"privatkunden.html\">Privatkunden<\/a><\/li><li><a href=\"privat-leistungen.html\">Alle Leistungen<\/a><\/li><li><a href=\"ueber-uns.html?bereich=privat\">Über uns<\/a><\/li><li><a href=\"kontakt.html?bereich=privat\">Kontakt<\/a><\/li><li><a href=\"index.html\">Kundenbereich wechseln<\/a><\/li><\/ul>"}}</script>
 </body>
 </html>

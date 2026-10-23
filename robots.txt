@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://costa-mclaren.de/sitemap.xml

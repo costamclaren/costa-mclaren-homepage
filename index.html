@@ -1,467 +1,255 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232d3035'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='27' fill='%23b89a6a' text-anchor='middle'%3ECM%3C/text%3E%3C/svg%3E" />
-  <title>Costa &amp; McLaren Versicherungsmakler GmbH · In Kürze für Sie da</title>
-  <meta name="description" content="Costa & McLaren Versicherungsmakler GmbH aus Grevenbroich. Unsere neue Website entsteht. Für persönliche Beratung sind wir schon jetzt für Sie da." />
-  <meta name="robots" content="noindex" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Costa & McLaren: persönliche Versicherungsberatung für Gewerbekunden und Privatkunden. Wählen Sie Ihren Bereich.">
+<meta name="theme-color" content="#081F3A">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://costa-mclaren.de/">
+<meta property="og:title" content="Costa & McLaren – Gewerbe- und Privatkunden">
+<meta property="og:description" content="Versicherungslösungen für Ihr Unternehmen und Ihr Privatleben.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Costa &amp; McLaren Versicherungsmakler GmbH">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://costa-mclaren.de/">
+<meta property="og:image" content="https://costa-mclaren.de/assets/images/vorschau-social-media.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Costa &amp; McLaren Versicherungsmakler GmbH: Düsseldorfer Medienhafen zur blauen Stunde">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/instrument-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="cookie-consent.css">
+<script>try{if(!sessionStorage.getItem("cm-einstieg-gesehen")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("intro-enabled")}sessionStorage.setItem("cm-einstieg-gesehen","1")}catch(error){}</script>
+<title>Costa & McLaren – Gewerbe- und Privatkunden</title>
+<link rel="stylesheet" href="assets/css/site.css?v=54961147723a">
+<style>
+/* Der Einstieg verwendet Logo, Schrift, Farben und Buttons aus site.css. */
+body{background:var(--navy-deep)}
+.shell{min-height:100svh;display:flex;flex-direction:column;background:var(--white)}
+.einstieg-kontakt{display:flex;gap:8px}.header{flex-shrink:0}
+.shell > .header .header__inner{max-width:var(--maxw)}
+.intro{background:var(--navy-deep);color:var(--white);padding:40px var(--gutter) 44px;display:flex;justify-content:space-between;align-items:flex-end;gap:28px}
+.intro h1{font-size:clamp(2.25rem,4.2vw,3.25rem);line-height:var(--leading-tight);letter-spacing:-.03em;font-weight:600;max-width:920px}
+.intro p{font-size:var(--text-sm);line-height:1.65;max-width:230px;color:var(--navy-pale);flex-shrink:0}
+.choices{display:grid;grid-template-columns:1fr 1fr;flex:1;min-height:510px;position:relative}
+.choice{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end;padding:50px max(var(--gutter),calc((100vw - var(--maxw))/2 + var(--gutter)));padding-right:var(--gutter);text-decoration:none;min-width:0;background:var(--navy-deep);color:white}
+.choice.private{background:var(--navy-pale);color:var(--navy-deep);padding-left:var(--gutter)}
+.choice:hover{color:white}.choice.private:hover{color:var(--navy-deep)}
+.scene{position:absolute;inset:0;z-index:-2;width:100%;height:100%;opacity:.48;transform:scale(1.025);transition:transform 1.3s cubic-bezier(.22,1,.36,1)}
+.private .scene{opacity:.55}
+.choice::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#081f3a 0%,rgba(8,31,58,.7) 42%,rgba(8,31,58,.08) 100%)}
+.choice.private::after{background:linear-gradient(0deg,#edf2f8 0%,rgba(237,242,248,.8) 42%,rgba(237,242,248,.02) 100%)}
+.choice:hover .scene,.choice:focus-visible .scene{transform:scale(1.08)}
+.content{max-width:540px}.overline{font-size:var(--text-xs);font-weight:600;letter-spacing:.12em;line-height:1.4;text-transform:uppercase;color:var(--accent);margin:0 0 16px}.private .overline{color:var(--accent-ink)}
+.choice h2{font-size:clamp(2rem,4.2vw,3.25rem);font-weight:600;line-height:var(--leading-tight);letter-spacing:-.03em;margin:0 0 20px}
+.description{font-size:clamp(1rem,1.35vw,1.25rem);line-height:1.6;color:var(--navy-pale);margin-bottom:28px}.private .description{color:var(--grau-650)}
+.einstieg__cta{gap:16px}.einstieg__cta .arrow{display:inline-block;transition:transform .25s cubic-bezier(.22,1,.36,1)}.choice:hover .arrow{transform:translateX(4px)}
+.number{position:absolute;right:var(--gutter);top:25px;font-size:11px;letter-spacing:.1em;opacity:.7}
+.midline{position:absolute;left:50%;inset-block:0;width:3px;background:var(--accent);z-index:2;pointer-events:none}
+.bottom{display:flex;align-items:center;justify-content:space-between;padding:20px var(--gutter);gap:22px;background:var(--navy-deep);color:var(--navy-pale);font-size:var(--text-xs)}.bottom .legal{display:flex;gap:22px;flex-wrap:wrap}.bottom a{color:var(--navy-pale)}.bottom a:hover{color:var(--accent)}.dot{display:inline-block;width:5px;height:5px;background:var(--accent);border-radius:50%;margin:0 10px 2px}
+.opening{overflow:hidden;position:fixed;inset:0;z-index:60;pointer-events:none;display:none;place-items:center;isolation:isolate;background:var(--navy-deep);color:var(--white);padding:20px;animation:opening-exit .4s 1.9s forwards,opening-end 1ms 2.3s forwards}
+.intro-enabled .opening{display:grid}
+.opening-brand{max-width:100%;text-align:center;position:relative}
+.opening-brand .wortmarke{align-items:center;gap:8px;color:var(--white)}
+.opening-brand .wortmarke__name{font-size:clamp(24px,4.1vw,48px)}
+.opening-brand .wortmarke__zusatz{font-size:clamp(10px,1.3vw,16px);text-align:center}
+.opening-brand::after{content:'';display:block;width:52px;height:2px;background:var(--accent);margin:24px auto 0}
+.build{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none}
+.build__plane{position:absolute;inset:0;background:#123957;clip-path:polygon(69% 0,100% 0,100% 100%,42% 100%);opacity:.42}
+.build__edge{position:absolute;inset:0;background:var(--accent);clip-path:polygon(69% 0,69.15% 0,42.15% 100%,42% 100%);opacity:.28;transform-origin:bottom}
+.build__second{position:absolute;inset:0;background:#0b2a48;clip-path:polygon(0 0,23% 0,0 85%);opacity:.8}
+.intro-enabled .build__plane{animation:plane-in 1.5s cubic-bezier(.22,1,.36,1) both}
+.intro-enabled .build__second{animation:second-in 1.5s .15s cubic-bezier(.22,1,.36,1) both}
+.intro-enabled .build__edge{animation:edge-in 1.2s .35s cubic-bezier(.22,1,.36,1) both}
+.intro-enabled .opening-brand .wortmarke__name{animation:brand-in .8s .35s cubic-bezier(.22,1,.36,1) both}
+.intro-enabled .opening-brand .wortmarke__zusatz{animation:brand-in .8s .6s cubic-bezier(.22,1,.36,1) both}
+.intro-enabled .opening-brand::after{animation:line-in .6s .85s cubic-bezier(.22,1,.36,1) both}
+@keyframes plane-in{from{opacity:0;transform:translateX(12%)}to{opacity:.42;transform:translateX(0)}}
+@keyframes second-in{from{opacity:0;transform:translateX(-8%)}to{opacity:.8;transform:translateX(0)}}
+@keyframes edge-in{from{opacity:0;transform:scaleY(0)}to{opacity:.28;transform:scaleY(1)}}
+@keyframes brand-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes line-in{from{opacity:0;transform:scaleX(0)}to{opacity:1;transform:scaleX(1)}}
+.intro-enabled .intro h1,.intro-enabled .intro p,.intro-enabled .content>*{animation:appear .5s 1.85s cubic-bezier(.22,1,.36,1) both}
+.veil{position:fixed;inset:0;background:var(--navy-deep);z-index:60;pointer-events:none;transform:scaleX(0);transform-origin:left}
+body:has(.cc-revoke:not([hidden])) .bottom{padding-bottom:76px}
+@keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes open-left{from{transform:translateX(0)}to{transform:translateX(-101%)}}@keyframes open-right{from{transform:translateX(0)}to{transform:translateX(101%)}}
+@keyframes opening-mark{0%{opacity:0;transform:translateY(10px)}20%,78%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-9px)}}
+@keyframes opening-exit{to{opacity:0}}
+@keyframes opening-end{to{visibility:hidden}}
+@media(max-width:800px){.intro{display:block;padding:32px var(--gutter)}.intro h1{font-size:2.25rem}.intro p{margin-top:20px;max-width:100%}.choices{grid-template-columns:1fr;min-height:0}.choice,.choice.private{padding:42px var(--gutter);min-height:410px}.choice h2{font-size:2.5rem}.midline{display:none}.bottom{align-items:flex-start;flex-direction:column;gap:14px}.einstieg-kontakt{gap:0}.einstieg-kontakt .nav__link{padding-inline:6px}.header__inner{gap:12px}}
+@media(max-width:390px){.einstieg-kontakt .nav__link:first-child{display:none}.choice h2{font-size:2.25rem}.einstieg__cta{padding-inline:18px}}
+@media(prefers-reduced-motion:reduce){.opening,.intro-enabled .opening{display:none}.intro-enabled .intro h1,.intro-enabled .intro p,.intro-enabled .content>*{animation:none}.scene,.einstieg__cta .arrow{transition:none}.choice:hover .scene{transform:none}}
+/* Freigegebener Einstieg mit lokal gespeicherten Bildern. */
+.choices{min-height:590px}
+.scene,.private .scene{opacity:1;height:74%;object-fit:cover;object-position:50% 35%}
+.choice::after{background:linear-gradient(0deg,#081f3a 0%,#081f3a 19%,rgba(8,31,58,.92) 32%,rgba(8,31,58,.32) 57%,rgba(8,31,58,.06) 100%)}
+.choice.private::after{background:linear-gradient(0deg,#edf2f8 0%,#edf2f8 19%,rgba(237,242,248,.96) 32%,rgba(237,242,248,.25) 57%,rgba(237,242,248,.02) 100%)}
+.number{background:var(--navy-deep);color:white;opacity:1;padding:5px 9px;border-radius:2px}
+@media(max-width:800px){.choices{min-height:0}.choice,.choice.private{min-height:560px}.scene{object-position:50% 25%}}
+/* Gleiche Neigung wie auf der Firmenkundenseite, hier symmetrisch um die Mitte. */
+@media(min-width:801px){
+ .choices{display:grid;grid-template-columns:1fr;grid-template-rows:1fr repeat(4,auto) 44px;min-height:620px;--top:57%;--bottom:43%}
+ .choice,.choice.private{position:relative;inset:auto;grid-area:1 / 1 / -1 / -1;display:grid;grid-template-rows:subgrid;grid-template-columns:1fr;padding:0;transition:clip-path .45s cubic-bezier(.22,1,.36,1)}
+ .choice.business{clip-path:polygon(0 0,var(--top) 0,var(--bottom) 100%,0 100%)}
+ .choice.private{clip-path:polygon(var(--top) 0,100% 0,100% 100%,var(--bottom) 100%)}
+ .choice .content{position:relative;grid-row:2 / 6;display:grid;grid-template-rows:subgrid;width:calc(40% - 2 * var(--gutter));max-width:540px;margin-left:var(--gutter);align-self:stretch}
+ .choice.private .content{margin-left:0;margin-right:var(--gutter);justify-self:end}
+ .choice h2{font-size:clamp(1.8rem,3.5vw,3.25rem)}
+ .choice .description{font-size:clamp(1rem,1.2vw,1.2rem)}
+ .choice .einstieg__cta{font-size:clamp(.75rem,1vw,1rem);padding:16px 18px;gap:10px;justify-self:start;align-self:start}
+ .scene,.private .scene{width:72%;height:76%;transform:scale(1);transition:transform .6s cubic-bezier(.22,1,.36,1);object-position:50% 30%}
+ .business .scene{transform-origin:30% 35%}
+ .private .scene{left:auto;right:0;width:55%;transform-origin:70% 35%;object-position:40% 30%}
+ .number{left:var(--gutter);right:auto}.private .number{left:auto;right:var(--gutter)}
+ .midline{display:block;left:0;inset:0;width:auto;background:var(--accent);clip-path:polygon(var(--top) 0,calc(var(--top) + .32%) 0,calc(var(--bottom) + .32%) 100%,var(--bottom) 100%);transition:clip-path .45s cubic-bezier(.22,1,.36,1)}
+ .choices:has(.business:focus-visible){--top:65%;--bottom:51%}
+ .choices:has(.private:focus-visible){--top:49%;--bottom:35%}
+ .choice:focus-visible{outline:none}.choice:focus-visible .content{outline:3px solid var(--accent);outline-offset:12px;border-radius:4px}
+ .choice:focus-visible .scene{transform:scale(1.06)}
+}
+@media(min-width:801px) and (hover:hover) and (pointer:fine){
+ .choices:has(.business:hover){--top:65%;--bottom:51%}
+ .choices:has(.private:hover){--top:49%;--bottom:35%}
+ .choice:hover .scene{transform:scale(1.06)}
+}
+@media(max-width:800px){
+ .choice.private{margin-top:-38px;padding-top:80px;clip-path:polygon(0 38px,100% 0,100% 100%,0 100%)}
+ .choice.business{padding-bottom:76px;min-height:598px}
+ .choice.private::before{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;background:var(--accent);clip-path:polygon(0 38px,100% 0,100% 3px,0 41px)}
+}
+@media(prefers-reduced-motion:reduce){.choice,.choice.private,.scene,.private .scene,.midline{transition:none!important}.choice:hover .scene,.choice:focus-visible .scene{transform:none!important}}
+/* Freigegebener kompakter Seitenrahmen: Größen wachsen nur bis zur Maximalbreite mit. */
+.shell{width:100%;max-width:var(--maxw);margin-inline:auto;background:var(--navy-deep)}
+.intro h1{font-size:clamp(2.25rem,4.2vw,2.8875rem)}
+@media(min-width:801px){
+ .shell > .header .header__inner,.intro,.bottom{padding-inline:var(--gutter)}
+ .choice h2{font-size:clamp(1.8rem,3.5vw,2.40625rem)}
+ .choice .description{font-size:1rem}
+ .choice .einstieg__cta{font-size:clamp(.75rem,1vw,.75rem)}
+}
 
-  <!-- Open Graph / Link-Preview -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Costa & McLaren Versicherungsmakler GmbH" />
-  <meta property="og:title" content="Costa & McLaren Versicherungsmakler GmbH" />
-  <meta property="og:description" content="Bald an Ihrer Seite. Unsere neue Website entsteht. Persönliche Beratung schon jetzt für Sie erreichbar." />
-  <meta property="og:locale" content="de_DE" />
-  <meta property="og:url" content="https://costa-mclaren.de/" />
-  <meta property="og:image" content="https://costa-mclaren.de/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Costa & McLaren Versicherungsmakler GmbH · Bald an Ihrer Seite." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Costa & McLaren Versicherungsmakler GmbH" />
-  <meta name="twitter:description" content="Bald an Ihrer Seite. Unsere neue Website entsteht." />
-  <meta name="twitter:image" content="https://costa-mclaren.de/og-image.png" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --anthrazit: #2d3035;
-      --ink-deep: #1c1e22;
-      --ink-black: #141518;
-      --white: #ffffff;
-      --gold: #b89a6a;
-      --gold-soft: rgba(184,154,106,0.55);
-      --muted: rgba(255,255,255,0.58);
-      --hair: rgba(255,255,255,0.14);
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'Lato', sans-serif;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { -webkit-text-size-adjust: 100%; }
-    body {
-      font-family: var(--sans);
-      background: var(--ink-black);
-      color: var(--white);
-      min-height: 100vh;
-      min-height: 100dvh;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      font-kerning: none;
-    }
-    a { text-decoration: none; color: inherit; }
-
-    /* ---------- STAGE / BACKGROUND ---------- */
-    .stage {
-      position: relative;
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      background:
-        radial-gradient(120% 90% at 18% 8%, rgba(184,154,106,0.10) 0%, rgba(184,154,106,0) 42%),
-        linear-gradient(155deg, var(--anthrazit) 0%, var(--ink-deep) 46%, var(--ink-black) 100%);
-    }
-    /* soft moving gold glow (pointer parallax) */
-    .glow {
-      position: absolute;
-      top: -22vh; left: -12vw;
-      width: 62vw; height: 62vw;
-      max-width: 900px; max-height: 900px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(184,154,106,0.16) 0%, rgba(184,154,106,0) 68%);
-      filter: blur(10px);
-      pointer-events: none;
-      will-change: transform;
-    }
-    /* film grain */
-    .grain {
-      position: absolute; inset: -50%;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
-      opacity: 0.05;
-      mix-blend-mode: soft-light;
-      pointer-events: none;
-    }
-    /* luxury hairline frame */
-    .frame {
-      position: absolute;
-      inset: 22px;
-      border: 1px solid var(--hair);
-      pointer-events: none;
-      opacity: 0;
-    }
-    .frame::before {
-      content: '';
-      position: absolute; top: -1px; left: -1px;
-      width: 46px; height: 46px;
-      border-top: 1px solid var(--gold-soft);
-      border-left: 1px solid var(--gold-soft);
-    }
-    .frame::after {
-      content: '';
-      position: absolute; bottom: -1px; right: -1px;
-      width: 46px; height: 46px;
-      border-bottom: 1px solid var(--gold-soft);
-      border-right: 1px solid var(--gold-soft);
-    }
-
-    /* ---------- TOP BAR ---------- */
-    .top {
-      position: relative; z-index: 3;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 46px 64px 0;
-    }
-    .monogram {
-      font-family: var(--serif);
-      font-size: 20px; font-weight: 500;
-      letter-spacing: 0.04em;
-      opacity: 0;
-    }
-    .status {
-      display: inline-flex; align-items: center; gap: 9px;
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--muted);
-      opacity: 0;
-    }
-    .status .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 0 0 rgba(184,154,106,0.5);
-      animation: pulse 2.6s ease-out infinite;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(184,154,106,0.45); }
-      70% { box-shadow: 0 0 0 9px rgba(184,154,106,0); }
-      100% { box-shadow: 0 0 0 0 rgba(184,154,106,0); }
-    }
-
-    /* ---------- HERO ---------- */
-    .hero {
-      position: relative; z-index: 3;
-      flex: 1;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 40px 64px;
-      max-width: 1120px;
-    }
-    .eyeline {
-      display: flex; align-items: center; gap: 18px;
-      margin-bottom: 30px;
-      opacity: 0;
-    }
-    .eyeline .rule { width: 46px; height: 1px; background: var(--gold-soft); }
-    .eyeline span {
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.24em; text-transform: uppercase;
-      color: var(--gold);
-    }
-    .headline {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: clamp(46px, 8.4vw, 116px);
-      line-height: 1.02;
-      letter-spacing: -0.015em;
-      margin-bottom: 34px;
-      /* hidden until JS splits + reveals; fallback shows via .no-js */
-    }
-    .headline .accent { font-style: italic; color: var(--gold); }
-    .subline {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(19px, 2.3vw, 29px);
-      line-height: 1.5;
-      color: rgba(255,255,255,0.78);
-      max-width: 30ch;
-      margin-bottom: 8px;
-      opacity: 0;
-    }
-    .subline-note {
-      font-family: var(--sans);
-      font-weight: 300;
-      font-size: clamp(16px, 1.7vw, 20px);
-      line-height: 1.7;
-      color: var(--muted);
-      max-width: 78ch;
-      margin-bottom: 52px;
-      opacity: 0;
-    }
-
-    /* ---------- ACTIONS ---------- */
-    .actions { display: flex; flex-wrap: wrap; gap: 16px; opacity: 0; }
-    .btn {
-      position: relative;
-      display: inline-flex; flex-direction: column; gap: 3px;
-      padding: 16px 34px;
-      will-change: transform;
-      cursor: pointer;
-      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-    }
-    .btn .btn-k {
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      opacity: 0.62;
-    }
-    .btn .btn-v {
-      font-family: var(--serif); font-size: 18px; letter-spacing: 0.01em;
-    }
-    .btn-inner { display: inline-block; will-change: transform; }
-    .btn-solid { background: var(--white); color: var(--ink-black); }
-    .btn-solid:hover { background: var(--gold); color: var(--ink-black); }
-    .btn-ghost { border: 1px solid rgba(255,255,255,0.28); color: var(--white); }
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-
-    /* ---------- FOOTER BAR ---------- */
-    .foot {
-      position: relative; z-index: 3;
-      display: flex; align-items: center; justify-content: space-between; gap: 24px;
-      padding: 0 64px 46px;
-      opacity: 0;
-    }
-    .foot-addr {
-      font-size: 13px; font-weight: 300; letter-spacing: 0.02em;
-      color: var(--muted);
-    }
-    .foot-addr a { color: var(--muted); transition: color 0.25s; }
-    .foot-addr a:hover { color: var(--white); }
-    .foot-legal { display: flex; align-items: center; gap: 18px; }
-    .foot-legal a {
-      position: relative;
-      font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--muted);
-    }
-    .foot-legal a::after {
-      content: ''; position: absolute; left: 0; bottom: -3px;
-      width: 100%; height: 1px; background: var(--gold);
-      transform: scaleX(0); transform-origin: right; transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
-    }
-    .foot-legal a:hover { color: var(--white); }
-    .foot-legal a:hover::after { transform: scaleX(1); transform-origin: left; }
-    .foot-legal .sep { width: 1px; height: 12px; background: var(--hair); }
-
-    /* ---------- CUSTOM CURSOR ---------- */
-    .cursor-ring {
-      position: fixed; top: 0; left: 0; z-index: 50;
-      width: 0; height: 0;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s;
-      will-change: transform;
-    }
-    .cursor-ring i {
-      position: absolute; top: 0; left: 0;
-      width: 34px; height: 34px; margin: -17px 0 0 -17px;
-      border: 1px solid var(--gold-soft); border-radius: 50%;
-      transition: transform 0.25s ease, background 0.25s, border-color 0.25s;
-    }
-    .cursor-dot {
-      position: fixed; top: 0; left: 0; z-index: 51;
-      width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px;
-      background: var(--gold); border-radius: 50%;
-      pointer-events: none; opacity: 0;
-      transition: opacity 0.3s;
-      will-change: transform;
-    }
-    .cursor-ring.hot i {
-      transform: scale(1.7);
-      background: rgba(184,154,106,0.10); border-color: var(--gold);
-    }
-
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 900px) {
-      .top { padding: 32px 30px 0; }
-      .hero { padding: 32px 30px; }
-      .foot { padding: 0 30px 34px; flex-direction: column; align-items: flex-start; gap: 14px; }
-      .frame { inset: 14px; }
-    }
-    @media (max-width: 560px) {
-      .status span.txt { display: none; }
-      .subline-note { margin-bottom: 40px; }
-      .actions { width: 100%; }
-      .btn { flex: 1; }
-    }
-
-    /* No-JS / pre-reveal fallback: make sure text is visible if JS fails */
-    .no-anim .monogram, .no-anim .status, .no-anim .eyeline,
-    .no-anim .subline, .no-anim .subline-note, .no-anim .actions,
-    .no-anim .foot, .no-anim .frame { opacity: 1 !important; }
-    .no-anim .headline { opacity: 1 !important; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .status .dot { animation: none; }
-    }
-  </style>
+/* Gemeinsames Foto: Düsseldorfer Medienhafen zur blauen Stunde, durchgehend über beide Kundenbereiche. */
+.scene,.business .scene,.private .scene{left:0;right:auto;width:100%;height:100%;object-fit:cover;object-position:50% 0;transform-origin:50% 0}
+.choice::after{background:linear-gradient(0deg,#081f3a 0%,#081f3a 22%,rgba(8,31,58,.9) 36%,rgba(8,31,58,.35) 62%,rgba(8,31,58,.1) 100%)}
+.choice.private::after{background:linear-gradient(0deg,#edf2f8 0%,#edf2f8 22%,rgba(237,242,248,.94) 36%,rgba(237,242,248,.4) 62%,rgba(237,242,248,.12) 100%)}
+@media(max-width:800px){.scene,.private .scene{height:100%}.business .scene{object-position:25% 0}.private .scene{object-position:75% 0}}
+@media(min-width:801px) and (hover:hover) and (pointer:fine){.choices:has(.choice:hover) .scene{transform:scale(1.04)}}
+@media(prefers-reduced-motion:reduce){.choices:has(.choice:hover) .scene{transform:none!important}}
+@media(max-width:800px){.intro h1 br.nur-breit{display:none}}
+/* Desktop: Foto in voller Höhe statt voller Breite, damit Turm, Skyline und Wasser über dem Text stehen. Links läuft es in Navy aus. */
+@media(min-width:801px){
+ .scene,.business .scene,.private .scene{left:auto;right:0;top:0;width:auto;height:104%;aspect-ratio:3/2;max-width:none;object-fit:cover;object-position:50% 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 32%);mask-image:linear-gradient(90deg,transparent 0,#000 32%)}
+ .choice::after{background:linear-gradient(0deg,#081f3a 0%,#081f3a 24%,rgba(8,31,58,.85) 34%,rgba(8,31,58,.2) 48%,rgba(8,31,58,0) 60%)}
+ .choice.private::after{background:linear-gradient(0deg,#edf2f8 0%,#edf2f8 34%,rgba(237,242,248,.94) 43%,rgba(237,242,248,.3) 53%,rgba(237,242,248,0) 61%)}
+}
+</style>
 </head>
 <body>
-  <div class="stage" id="stage">
-    <div class="glow" id="glow"></div>
-    <div class="grain"></div>
-    <div class="frame" id="frame"></div>
-
-    <header class="top">
-      <div class="monogram" id="monogram">Costa &amp; McLaren Versicherungsmakler GmbH</div>
-      <div class="status" id="status">
-        <span class="dot"></span><span class="txt">Website in Kürze</span>
-      </div>
-    </header>
-
-    <main class="hero">
-      <div class="eyeline" id="eyeline">
-        <span class="rule"></span>
-        <span>Versicherungsmakler</span>
-      </div>
-
-      <h1 class="headline" id="headline">Bald an Ihrer <span class="accent">Seite.</span></h1>
-
-      <p class="subline" id="subline">Unsere neue Website entsteht.</p>
-      <p class="subline-note" id="subnote">Persönliche Beratung für gewerbliche Risiken, Vorsorge und Privatkunden.<br>Schon jetzt direkt für Sie erreichbar.<br>Präzise. Diskret. Auf Augenhöhe.</p>
-
-      <div class="actions" id="actions">
-        <a class="btn btn-solid magnetic" href="tel:+49218168717" data-cursor>
-          <span class="btn-inner">
-            <span class="btn-k">Anrufen</span>
-            <span class="btn-v">02181 – 68717</span>
-          </span>
-        </a>
-        <a class="btn btn-ghost magnetic" href="mailto:info@costa-mclaren.de" data-cursor>
-          <span class="btn-inner">
-            <span class="btn-k">E-Mail schreiben</span>
-            <span class="btn-v">info@costa-mclaren.de</span>
-          </span>
-        </a>
-      </div>
-    </main>
-
-    <footer class="foot" id="foot">
-      <div class="foot-addr">
-        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Poststra%C3%9Fe+60,+41516+Grevenbroich" target="_blank" rel="noopener">Poststr. 60 · 41516 Grevenbroich</a>
-      </div>
-      <nav class="foot-legal">
-        <a href="impressum.html" data-cursor>Impressum</a>
-        <span class="sep"></span>
-        <a href="datenschutz.html" data-cursor>Datenschutz</a>
-      </nav>
-    </footer>
+<div class="opening" aria-hidden="true"><div class="build" aria-hidden="true"><span class="build__plane"></span><span class="build__second"></span><span class="build__edge"></span></div><div class="opening-brand"><span class="wortmarke"><span class="wortmarke__name">Costa &amp; McLaren</span><span class="wortmarke__zusatz">Versicherungsmakler GmbH</span></span></div></div>
+<a class="skip-link" href="#kundenbereiche">Zum Inhalt springen</a>
+<main class="shell" id="selection">
+ <header class="header header--dunkel">
+  <div class="header__inner">
+    <a class="wortmarke" href="index.html" aria-label="Costa und McLaren Versicherungsmakler GmbH, zur Startseite">
+      <span class="wortmarke__name">Costa &amp; McLaren</span>
+      <span class="wortmarke__zusatz">Versicherungsmakler GmbH</span>
+    </a>
+    <nav class="einstieg-kontakt" aria-label="Kontakt und Maklerhaus"><a class="nav__link" href="ueber-uns.html">Über uns</a><a class="nav__link" href="kontakt.html">Kontakt</a></nav>
+  </div>
+</header>
+ <section class="intro" aria-labelledby="title"><h1 id="title">Versicherungs&shy;lösungen<br class="nur-breit"> für Ihr Unternehmen<br> und Ihr Privatleben</h1><p>Willkommen bei Costa & McLaren.<br>Welcher Bereich führt Sie zu uns?</p></section>
+ <section class="choices" id="kundenbereiche" aria-label="Kundenbereich wählen">
+  <a href="gewerbe.html" class="choice business" data-destination="business">
+   <img class="scene" src="assets/images/düsseldorf-medienhafen-blaue-stunde-2400.jpg" srcset="assets/images/düsseldorf-medienhafen-blaue-stunde-1200.jpg 1200w, assets/images/düsseldorf-medienhafen-blaue-stunde-2400.jpg 2400w" sizes="(max-width:800px) 100vw, 900px" width="2400" height="1600" alt="" fetchpriority="high">
+   <div class="content"><p class="overline">Betriebliche Absicherung</p><h2>Gewerbekunden</h2><p class="description">Betriebliche Risiken, Sachwerte und Mitarbeiter – abgestimmt auf Ihr Unternehmen.</p><span class="btn einstieg__cta">Zum Gewerbekundenbereich <span class="arrow" aria-hidden="true">→</span></span></div>
+  </a>
+  <a href="privatkunden.html" class="choice private" data-destination="private">
+   <img class="scene" src="assets/images/düsseldorf-medienhafen-blaue-stunde-2400.jpg" srcset="assets/images/düsseldorf-medienhafen-blaue-stunde-1200.jpg 1200w, assets/images/düsseldorf-medienhafen-blaue-stunde-2400.jpg 2400w" sizes="(max-width:800px) 100vw, 900px" width="2400" height="1600" alt="">
+   <div class="content"><p class="overline">Persönliche Absicherung</p><h2>Privatkunden</h2><p class="description">Krankenversicherung, Vermögensschutz und Vorsorge – abgestimmt auf Ihre persönliche Situation.</p><span class="btn einstieg__cta">Zum Privatkundenbereich <span class="arrow" aria-hidden="true">→</span></span></div>
+  </a><div class="midline" aria-hidden="true"></div>
+ </section>
+ <footer class="bottom"><span>Präzise <span class="dot" aria-hidden="true"></span> Diskret <span class="dot" aria-hidden="true"></span> Auf Augenhöhe</span><div class="legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="erstinformation.html">Erstinformation</a></div></footer>
+</main>
+<div class="veil" id="veil" aria-hidden="true"></div>
+<!-- Cookie Consent Banner -->
+  <div class="cc-banner" id="cc-banner" hidden role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc">
+    <h2 id="cc-title">Cookie-Einstellungen</h2>
+    <p id="cc-desc">Diese Website verwendet Cookies und ähnliche Technologien. Einige sind technisch notwendig, andere helfen uns, die Website zu verbessern. Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a> und im <a href="impressum.html">Impressum</a>.</p>
+    <div class="cc-buttons">
+      <button type="button" class="cc-btn" data-cc-action="reject">Alle ablehnen</button>
+      <button type="button" class="cc-btn" data-cc-action="settings">Einstellungen</button>
+      <button type="button" class="cc-btn" data-cc-action="accept">Alle akzeptieren</button>
+    </div>
   </div>
 
-  <div class="cursor-ring" id="cursorRing"><i></i></div>
-  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cc-modal-overlay" id="cc-modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="cc-modal-title">
+    <div class="cc-modal">
+      <h2 id="cc-modal-title">Datenschutz-Einstellungen</h2>
+      <p>Wir respektieren Ihre Privatsphäre. Sie entscheiden, welche Kategorien von Cookies Sie zulassen möchten. Notwendige Cookies können nicht deaktiviert werden.</p>
+      <div class="cc-category">
+        <div class="cc-category-head">
+          <h3 class="cc-category-title">Notwendig</h3>
+          <label class="cc-toggle"><input type="checkbox" data-cc-category="necessary" checked disabled><span class="cc-slider"></span></label>
+        </div>
+        <p class="cc-category-desc">Erforderlich für den sicheren Betrieb der Website. Speichert z. B. Ihre Cookie-Einstellungen. Rechtsgrundlage: § 25 Abs. 2 Nr. 2 TDDDG i.V.m. Art. 6 Abs. 1 lit. f DSGVO.</p>
+        <details class="cc-category-details">
+          <summary>Details anzeigen</summary>
+          <table><thead><tr><th>Name</th><th>Anbieter</th><th>Zweck</th><th>Speicherdauer</th></tr></thead>
+          <tbody><tr><td>cc_consent</td><td>costa-mclaren.de</td><td>Speichert die Cookie-Einwilligung</td><td>12 Monate</td></tr></tbody></table>
+        </details>
+      </div>
+      <div class="cc-category">
+        <div class="cc-category-head">
+          <h3 class="cc-category-title">Funktional</h3>
+          <label class="cc-toggle"><input type="checkbox" data-cc-category="functional"><span class="cc-slider"></span></label>
+        </div>
+        <p class="cc-category-desc">Ermöglichen erweiterte Funktionen wie das Einbinden von Karten Dritter. Rechtsgrundlage: § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO.</p>
+        <details class="cc-category-details">
+          <summary>Details anzeigen</summary>
+          <table><thead><tr><th>Dienst</th><th>Anbieter</th><th>Zweck</th><th>Datentransfer</th></tr></thead>
+          <tbody><tr><td colspan="4" style="color:#999;font-style:italic;">Derzeit keine funktionalen Dienste aktiv.</td></tr></tbody></table>
+        </details>
+      </div>
+      <div class="cc-category">
+        <div class="cc-category-head">
+          <h3 class="cc-category-title">Statistik</h3>
+          <label class="cc-toggle"><input type="checkbox" data-cc-category="statistics"><span class="cc-slider"></span></label>
+        </div>
+        <p class="cc-category-desc">Helfen uns zu verstehen, wie Besucher die Website nutzen. Daten werden anonymisiert ausgewertet. Rechtsgrundlage: § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO.</p>
+        <details class="cc-category-details">
+          <summary>Details anzeigen</summary>
+          <table><thead><tr><th>Dienst</th><th>Anbieter</th><th>Zweck</th><th>Speicherdauer</th></tr></thead>
+          <tbody><tr><td colspan="4" style="color:#999;font-style:italic;">Derzeit keine Statistik-Dienste aktiv.</td></tr></tbody></table>
+        </details>
+      </div>
+      <div class="cc-category">
+        <div class="cc-category-head">
+          <h3 class="cc-category-title">Marketing</h3>
+          <label class="cc-toggle"><input type="checkbox" data-cc-category="marketing"><span class="cc-slider"></span></label>
+        </div>
+        <p class="cc-category-desc">Werden verwendet, um Werbung zielgerichtet auszuspielen. Rechtsgrundlage: § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO.</p>
+        <details class="cc-category-details">
+          <summary>Details anzeigen</summary>
+          <table><thead><tr><th>Dienst</th><th>Anbieter</th><th>Zweck</th><th>Datentransfer</th></tr></thead>
+          <tbody><tr><td colspan="4" style="color:#999;font-style:italic;">Derzeit keine Marketing-Cookies aktiv.</td></tr></tbody></table>
+        </details>
+      </div>
+      <p class="cc-note">Sie können Ihre Einwilligung jederzeit über „Cookie-Einstellungen" widerrufen.</p>
+      <div class="cc-modal-buttons">
+        <button type="button" class="cc-btn" data-cc-action="reject">Alle ablehnen</button>
+        <button type="button" class="cc-btn" data-cc-action="save">Auswahl speichern</button>
+        <button type="button" class="cc-btn" data-cc-action="accept">Alle akzeptieren</button>
+      </div>
+    </div>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-  <script>
-    (function () {
-      var hasGSAP = typeof gsap !== 'undefined';
-      if (!hasGSAP) { document.body.classList.add('no-anim'); return; }
-
-      gsap.registerPlugin(SplitText);
-
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var fine = window.matchMedia('(pointer: fine)').matches;
-
-      function build() {
-        // ---- Headline split ----
-        var headline = document.getElementById('headline');
-        var split = SplitText.create(headline, { type: 'words,chars', mask: 'chars', charsClass: 'ch' });
-        gsap.set(headline, { autoAlpha: 1 });
-
-        var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-        if (reduce) {
-          // Reduced motion: opacity only, no transforms
-          gsap.set(split.chars, { opacity: 1 });
-          tl.to(['#frame', '#monogram', '#status', '#eyeline', '#headline', '#subline', '#subnote', '#actions', '#foot'],
-                { autoAlpha: 1, duration: 0.6, stagger: 0.06 });
-          return tl;
-        }
-
-        gsap.set(split.chars, { yPercent: 118 });
-
-        tl.to('#frame', { autoAlpha: 1, duration: 1.2, ease: 'power2.out' }, 0)
-          .to('#monogram', { autoAlpha: 1, y: 0, duration: 0.9 }, 0.15)
-          .fromTo('#monogram', { y: -12 }, { y: 0, duration: 0.9 }, 0.15)
-          .to('#status', { autoAlpha: 1, duration: 0.9 }, 0.3)
-          .to('#eyeline', { autoAlpha: 1, duration: 0.9 }, 0.4)
-          .fromTo('.eyeline .rule', { scaleX: 0, transformOrigin: 'left' }, { scaleX: 1, duration: 0.9, ease: 'power2.out' }, 0.45)
-          .to(split.chars, { yPercent: 0, duration: 1.05, stagger: 0.026, ease: 'power4.out' }, 0.5)
-          .to('#subline', { autoAlpha: 1, y: 0, duration: 0.9 }, '-=0.55')
-          .fromTo('#subline', { y: 16 }, { y: 0, duration: 0.9 }, '<')
-          .to('#subnote', { autoAlpha: 1, y: 0, duration: 0.9 }, '-=0.7')
-          .fromTo('#subnote', { y: 16 }, { y: 0, duration: 0.9 }, '<')
-          .to('#actions', { autoAlpha: 1, y: 0, duration: 0.9 }, '-=0.6')
-          .fromTo('#actions', { y: 18 }, { y: 0, duration: 0.9 }, '<')
-          .to('#foot', { autoAlpha: 1, duration: 0.9 }, '-=0.5');
-
-        return tl;
-      }
-
-      // Wait for fonts so SplitText measures correctly, then build
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(build);
-      } else {
-        build();
-      }
-
-      if (reduce) return; // skip pointer effects on reduced motion
-
-      // ---- Pointer parallax on gold glow ----
-      var glow = document.getElementById('glow');
-      var glowX = gsap.quickTo(glow, 'x', { duration: 0.9, ease: 'power3' });
-      var glowY = gsap.quickTo(glow, 'y', { duration: 0.9, ease: 'power3' });
-
-      // ---- Custom cursor (fine pointer only) ----
-      var ring = document.getElementById('cursorRing');
-      var dot = document.getElementById('cursorDot');
-      var ringX, ringY, dotX, dotY;
-      if (fine) {
-        ringX = gsap.quickTo(ring, 'x', { duration: 0.35, ease: 'power3' });
-        ringY = gsap.quickTo(ring, 'y', { duration: 0.35, ease: 'power3' });
-        dotX = gsap.quickTo(dot, 'x', { duration: 0.12, ease: 'power3' });
-        dotY = gsap.quickTo(dot, 'y', { duration: 0.12, ease: 'power3' });
-        gsap.to([ring, dot], { opacity: 1, duration: 0.4, delay: 0.4 });
-
-        document.querySelectorAll('[data-cursor]').forEach(function (el) {
-          el.addEventListener('mouseenter', function () { ring.classList.add('hot'); });
-          el.addEventListener('mouseleave', function () { ring.classList.remove('hot'); });
-        });
-      }
-
-      window.addEventListener('pointermove', function (e) {
-        var cx = e.clientX, cy = e.clientY;
-        if (fine) { ringX(cx); ringY(cy); dotX(cx); dotY(cy); }
-        // parallax: shift glow opposite to pointer, small amount
-        var nx = (cx / window.innerWidth - 0.5);
-        var ny = (cy / window.innerHeight - 0.5);
-        glowX(-nx * 60);
-        glowY(-ny * 60);
-      }, { passive: true });
-
-      // ---- Magnetic buttons ----
-      document.querySelectorAll('.magnetic').forEach(function (btn) {
-        var inner = btn.querySelector('.btn-inner') || btn;
-        var toX = gsap.quickTo(btn, 'x', { duration: 0.5, ease: 'power3' });
-        var toY = gsap.quickTo(btn, 'y', { duration: 0.5, ease: 'power3' });
-        var iToX = gsap.quickTo(inner, 'x', { duration: 0.5, ease: 'power3' });
-        var iToY = gsap.quickTo(inner, 'y', { duration: 0.5, ease: 'power3' });
-
-        btn.addEventListener('pointermove', function (e) {
-          var r = btn.getBoundingClientRect();
-          var mx = e.clientX - (r.left + r.width / 2);
-          var my = e.clientY - (r.top + r.height / 2);
-          toX(mx * 0.28); toY(my * 0.4);
-          iToX(mx * 0.12); iToY(my * 0.16);
-        });
-        btn.addEventListener('pointerleave', function () {
-          toX(0); toY(0); iToX(0); iToY(0);
-        });
-      });
-    })();
-  </script>
+  <button type="button" class="cc-revoke" id="cc-revoke" hidden>Cookie-Einstellungen</button>
+<script src="assets/js/einstieg.js?v=6c63cd2ce495" defer></script>
+<script src="cookie-consent.js" defer></script>
 </body>
 </html>
