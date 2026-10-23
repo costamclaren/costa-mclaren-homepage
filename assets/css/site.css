@@ -254,7 +254,7 @@ a:hover { color: var(--navy-deep); }
   border: 1px dashed rgba(14, 92, 138, 0.35); border-radius: var(--radius-card);
 }
 .foto-platzhalter figcaption { font-size: var(--text-sm); font-weight: 500; }
-.team-duo { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; max-width: 400px; justify-self: end; }
+.team-duo { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; max-width: 560px; justify-self: end; }
 .fakten .team-duo__person, .team-duo__person { padding: 0; border: 0; }
 .team-duo__person { position: relative; margin: 0; border-radius: var(--radius-card); overflow: hidden; aspect-ratio: 4 / 5; background: var(--navy-pale); }
 .team-duo__person img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
@@ -675,15 +675,25 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 
 /* Kopfbereich mit Teamfoto: Fotos bleiben auch auf Tablet und kleinem Laptop rechts neben dem Text. */
 @media (min-width: 761px) and (max-width: 1100px) {
-  .hero:has(.team-duo) .hero__inner { grid-template-columns: minmax(0, 1fr) 250px; gap: 64px; min-height: 520px; padding-bottom: 72px; }
+  .hero:has(.team-duo) .hero__inner { grid-template-columns: minmax(0, 1fr) clamp(250px, 32vw, 340px); gap: 64px; min-height: 520px; padding-bottom: 72px; }
   .hero:has(.team-duo) .hero__text { max-width: 30rem; }
-  .hero:has(.team-duo) .hero__links  { clip-path: polygon(0 0, 67% 0, 57% 100%, 0 100%); }
-  .hero:has(.team-duo) .hero__rechts { display: block; clip-path: polygon(67% 0, 100% 0, 100% 100%, 57% 100%); }
-  .hero:has(.team-duo) .hero__naht   { display: block; clip-path: polygon(67% 0, 67.4% 0, 57.4% 100%, 57% 100%); }
+  .hero:has(.team-duo) .hero__links  { clip-path: polygon(0 0, 65% 0, 55% 100%, 0 100%); }
+  .hero:has(.team-duo) .hero__rechts { display: block; clip-path: polygon(65% 0, 100% 0, 100% 100%, 55% 100%); }
+  .hero:has(.team-duo) .hero__naht   { display: block; clip-path: polygon(65% 0, 65.4% 0, 55.4% 100%, 55% 100%); }
   .hero:has(.team-duo) .fakten { position: static; background: none; margin-inline: 0; padding: 0; clip-path: none; }
-  .hero:has(.team-duo) .team-duo { max-width: 250px; gap: 8px; }
+  .hero:has(.team-duo) .team-duo { max-width: 340px; gap: 10px; }
   .hero:has(.team-duo) .team-duo__person figcaption { padding: 28px 10px 9px; }
   .hero:has(.team-duo) .team-duo__person figcaption b { font-size: 13px; white-space: nowrap; }
   .hero:has(.team-duo) .team-duo__person figcaption span { font-size: 9px; letter-spacing: .05em; }
 }
 @media (max-width: 760px) { .team-duo { max-width: 420px; justify-self: start; } }
+
+/* Desktop: Teamfoto größer, Diagonale und Textbreite darauf abgestimmt. */
+@media (min-width: 1101px) {
+  .hero:has(.team-duo) .hero__inner { grid-template-columns: minmax(0, 1fr) clamp(380px, 36vw, 520px); }
+  .hero:has(.team-duo) .hero__text { max-width: min(36rem, 40vw); }
+  .hero:has(.team-duo) .team-duo { max-width: 520px; gap: 14px; }
+  .hero:has(.team-duo) .hero__links  { clip-path: polygon(0 0, 60% 0, 46% 100%, 0 100%); }
+  .hero:has(.team-duo) .hero__rechts { clip-path: polygon(60% 0, 100% 0, 100% 100%, 46% 100%); }
+  .hero:has(.team-duo) .hero__naht   { clip-path: polygon(60% 0, 60.32% 0, 46.32% 100%, 46% 100%); }
+}
